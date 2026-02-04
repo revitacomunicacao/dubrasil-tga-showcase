@@ -1,4 +1,5 @@
 import Header from "@/components/Header";
+import VideoCarousel from "@/components/VideoCarousel";
 import Hero from "@/components/Hero";
 import Features from "@/components/Features";
 import Modules from "@/components/Modules";
@@ -11,6 +12,7 @@ const Index = () => {
   return (
     <div className="min-h-screen">
       <Header />
+      <VideoCarousel />
       <Hero />
       <Features />
       <Modules />
