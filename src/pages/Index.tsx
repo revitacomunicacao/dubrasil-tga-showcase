@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import VideoCarousel from "@/components/VideoCarousel";
 import Hero from "@/components/Hero";
+import DevicesShowcase from "@/components/DevicesShowcase";
 import Features from "@/components/Features";
 import Modules from "@/components/Modules";
 import Benefits from "@/components/Benefits";
@@ -14,6 +15,7 @@ const Index = () => {
       <Header />
       <VideoCarousel />
       <Hero />
+      <DevicesShowcase />
       <Features />
       <Modules />
       <Benefits />
