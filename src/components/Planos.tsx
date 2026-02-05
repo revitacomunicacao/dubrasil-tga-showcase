@@ -1,8 +1,36 @@
 // src/components/Planos.tsx
+import React, { useEffect, useRef, useState } from "react"
 import { Check, Sparkles } from "lucide-react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
+
+function useInView<T extends HTMLElement>(
+  options: IntersectionObserverInit & { once?: boolean } = { threshold: 0.25, once: true }
+) {
+  const ref = useRef<T | null>(null)
+  const [inView, setInView] = useState(false)
+
+  useEffect(() => {
+    const el = ref.current
+    if (!el) return
+
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        setInView(true)
+        if (options.once !== false) observer.unobserve(el)
+      } else if (options.once === false) {
+        setInView(false)
+      }
+    }, options)
+
+    observer.observe(el)
+    return () => observer.disconnect()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
+  return { ref, inView }
+}
 
 type Plan = {
   name: string
@@ -69,29 +97,54 @@ const FEATURES_MIN_H = "min-h-[260px]" // equaliza área de lista
 const CTA_MIN_H = "min-h-[88px]" // botão + texto de apoio
 
 export function Planos() {
+  const { ref, inView } = useInView<HTMLElement>({ threshold: 0.2, once: true })
+
   return (
-    <section id="planos" className="w-full py-16 md:py-24">
+    <section ref={ref} id="planos" className="w-full py-16 md:py-24">
       <div className="mx-auto w-full max-w-6xl px-6">
+        {/* Header */}
         <div className="mb-10 flex flex-col gap-3 md:mb-14">
-          <div className="flex items-center gap-2">
+          <div
+            className={[
+              "flex items-center gap-2",
+              inView
+                ? "animate-in fade-in slide-in-from-top-4 duration-700"
+                : "opacity-0 -translate-y-2",
+            ].join(" ")}
+          >
             <Sparkles className="h-5 w-5 text-primary" />
             <p className="text-sm font-medium text-muted-foreground">
               Planos de contratação
             </p>
           </div>
 
-          <h2 className="text-3xl font-semibold tracking-tight md:text-4xl">
+          <h2
+            className={[
+              "text-3xl font-semibold tracking-tight md:text-4xl",
+              inView
+                ? "animate-in fade-in slide-in-from-bottom-5 duration-700 delay-150"
+                : "opacity-0 translate-y-3",
+            ].join(" ")}
+          >
             Escolha o plano certo para o seu ritmo de operação
           </h2>
 
-          <p className="max-w-2xl text-base leading-relaxed text-muted-foreground">
+          <p
+            className={[
+              "max-w-2xl text-base leading-relaxed text-muted-foreground",
+              inView
+                ? "animate-in fade-in slide-in-from-bottom-5 duration-700 delay-300"
+                : "opacity-0 translate-y-3",
+            ].join(" ")}
+          >
             Valores e benefícios demonstrativos (fictícios). O objetivo é você
             visualizar os níveis de entrega e comparar rapidamente.
           </p>
         </div>
 
+        {/* Cards */}
         <div className="grid grid-cols-1 gap-5 md:grid-cols-3 items-stretch">
-          {PLANS.map((plan) => (
+          {PLANS.map((plan, idx) => (
             <Card
               key={plan.name}
               className={[
@@ -99,7 +152,11 @@ export function Planos() {
                 plan.highlight
                   ? "ring-1 ring-primary/35 shadow-sm"
                   : "hover:shadow-sm transition-shadow",
+                inView
+                  ? "animate-in fade-in slide-in-from-bottom-6 duration-700"
+                  : "opacity-0 translate-y-3",
               ].join(" ")}
+              style={inView ? { animationDelay: `${idx * 120}ms` } : undefined}
             >
               {plan.highlight ? (
                 <div className="pointer-events-none absolute inset-x-0 top-0 h-1 bg-primary" />
@@ -112,7 +169,9 @@ export function Planos() {
                     <CardTitle className={`text-xl ${TITLE_MIN_H}`}>
                       {plan.name}
                     </CardTitle>
-                    <p className={`mt-1 text-sm text-muted-foreground ${SUBTITLE_MIN_H}`}>
+                    <p
+                      className={`mt-1 text-sm text-muted-foreground ${SUBTITLE_MIN_H}`}
+                    >
                       {plan.subtitle}
                     </p>
                   </div>
@@ -127,9 +186,7 @@ export function Planos() {
                         {plan.badge}
                       </Badge>
                     ) : (
-                      <span className="invisible select-none">
-                        placeholder
-                      </span>
+                      <span className="invisible select-none">placeholder</span>
                     )}
                   </div>
                 </div>
@@ -173,7 +230,6 @@ export function Planos() {
             </Card>
           ))}
         </div>
-
       </div>
     </section>
   )
