@@ -18,13 +18,13 @@ const slides: VideoSlide[] = [
   },
   {
     id: 2,
-    videoUrl: "https://videos.pexels.com/video-files/7989670/7989670-uhd_2560_1440_25fps.mp4",
+    videoUrl: "https://videos.pexels.com/video-files/3129671/3129671-uhd_2560_1440_30fps.mp4",
     title: "Decisões Baseadas em Dados",
     subtitle: "Relatórios e dashboards em tempo real"
   },
   {
     id: 3,
-    videoUrl: "https://videos.pexels.com/video-files/5527832/5527832-uhd_2560_1440_25fps.mp4",
+    videoUrl: "https://videos.pexels.com/video-files/3129671/3129671-uhd_2560_1440_30fps.mp4",
     title: "Automatize Seus Processos",
     subtitle: "Mais produtividade e menos trabalho manual"
   }
@@ -138,7 +138,7 @@ const VideoCarousel = () => {
                     onClick={openWhatsApp}
                     className="bg-accent hover:bg-accent/90 text-accent-foreground text-lg px-8 py-6"
                   >
-                    Solicitar Demonstração
+                    Saiba mais
                   </Button>
                 </div>
               </div>
