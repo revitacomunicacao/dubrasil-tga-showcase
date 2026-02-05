@@ -1,13 +1,16 @@
+import Logo from "@/assets/logo tga.png";
+
 const clients = [
-  { name: "Cliente 1", placeholder: "LOGO" },
-  { name: "Cliente 2", placeholder: "LOGO" },
-  { name: "Cliente 3", placeholder: "LOGO" },
-  { name: "Cliente 4", placeholder: "LOGO" },
-  { name: "Cliente 5", placeholder: "LOGO" },
-  { name: "Cliente 6", placeholder: "LOGO" },
-  { name: "Cliente 7", placeholder: "LOGO" },
-  { name: "Cliente 8", placeholder: "LOGO" },
+  { name: "Cliente 1", placeholder: "LOGO", image: Logo },
+  { name: "Cliente 2", placeholder: "LOGO", image: Logo },
+  { name: "Cliente 3", placeholder: "LOGO", image: Logo },
+  { name: "Cliente 4", placeholder: "LOGO", image: Logo },
+  { name: "Cliente 5", placeholder: "LOGO", image: Logo },
+  { name: "Cliente 6", placeholder: "LOGO", image: Logo },
+  { name: "Cliente 7", placeholder: "LOGO", image: Logo },
+  { name: "Cliente 8", placeholder: "LOGO", image: Logo },
 ];
+
 
 const ClientsCarousel = () => {
   return (
@@ -37,9 +40,12 @@ const ClientsCarousel = () => {
               key={`first-${index}`}
               className="flex-shrink-0 mx-8 w-40 h-20 bg-card border border-border rounded-xl flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300 hover:border-accent/50 hover:shadow-lg"
             >
-              <span className="text-muted-foreground font-semibold text-sm">
-                {client.placeholder}
-              </span>
+              <img
+                src={client.image}
+                alt={client.placeholder}
+                className="max-h-10 max-w-[120px] object-contain"
+                loading="lazy"
+              />
             </div>
           ))}
           {/* Duplicate set for seamless loop */}
@@ -48,9 +54,12 @@ const ClientsCarousel = () => {
               key={`second-${index}`}
               className="flex-shrink-0 mx-8 w-40 h-20 bg-card border border-border rounded-xl flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300 hover:border-accent/50 hover:shadow-lg"
             >
-              <span className="text-muted-foreground font-semibold text-sm">
-                {client.placeholder}
-              </span>
+              <img
+                src={client.image}
+                alt={client.placeholder}
+                className="max-h-10 max-w-[120px] object-contain"
+                loading="lazy"
+              />
             </div>
           ))}
         </div>

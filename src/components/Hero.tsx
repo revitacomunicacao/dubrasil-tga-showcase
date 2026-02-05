@@ -45,7 +45,7 @@ const Hero = () => {
             <Button 
               size="lg" 
               variant="outline"
-              className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 text-lg px-8 py-6"
+              className="border-primary-foreground/30 text-primary-foreground bg-primary-foreground/10 text-lg px-8 py-6"
               onClick={() => document.getElementById("recursos")?.scrollIntoView({ behavior: "smooth" })}
             >
               <Play className="mr-2" size={20} />

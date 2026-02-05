@@ -9,6 +9,9 @@ import Benefits from "@/components/Benefits";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import { Planos } from "@/components/Planos";
+import { SobreDuBrasil } from "@/components/SobreDuBrasil";
+import { SolucoesDuBrasil } from "@/components/SolucoesDuBrasil";
 
 const Index = () => {
   return (
@@ -18,6 +21,9 @@ const Index = () => {
       <Hero />
       <DevicesShowcase />
       <ClientsCarousel />
+      <SobreDuBrasil />
+      <Planos />
+      <SolucoesDuBrasil />
       <Features />
       <Modules />
       <Benefits />
