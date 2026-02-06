@@ -45,6 +45,7 @@ const DevicesShowcase = () => {
     <section
       ref={ref}
       className="relative py-20 bg-gradient-to-br from-primary via-primary to-primary/95 overflow-hidden"
+      id="dispositivos"
     >
       {/* Decorative background elements */}
       <div className="absolute inset-0 overflow-hidden">
@@ -101,7 +102,7 @@ const DevicesShowcase = () => {
                 className={[
                   "absolute",
                   feature.position,
-                  "z-20 hidden md:flex items-center gap-2 bg-card/95 backdrop-blur-sm rounded-xl px-4 py-3 shadow-xl border border-border/50",
+                  "z-20 hidden md:flex items-center gap-2 hover:bg-[#2b91c2] bg-card/95 backdrop-blur-sm rounded-xl px-4 py-3 shadow-xl border border-border/50",
                   inView
                     ? "animate-in fade-in zoom-in-95 slide-in-from-bottom-3 duration-700"
                     : "opacity-0 translate-y-2 scale-[0.98]",

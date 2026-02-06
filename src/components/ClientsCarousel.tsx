@@ -44,7 +44,7 @@ const ClientsCarousel = () => {
   const { ref, inView } = useInView<HTMLElement>({ threshold: 0.2, once: true })
 
   return (
-    <section ref={ref} className="py-16 bg-background overflow-hidden">
+    <section ref={ref} id="clientes" className="py-16 bg-background overflow-hidden">
       <div className="container mx-auto px-4 mb-10">
         <div className="text-center">
           <span

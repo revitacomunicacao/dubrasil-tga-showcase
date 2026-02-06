@@ -2,7 +2,8 @@
 import { useState, useEffect, useRef } from "react";
 import { ChevronLeft, ChevronRight, Play, Pause } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import Logo from "@/assets/banners tga.png";
+import banner2 from "@/assets/dubrasil-fullbanner.jpg.jpeg";
+import banner3 from "@/assets/banners tga.png";
 
 interface VideoSlide {
   id: number;
@@ -26,14 +27,13 @@ const slides: VideoSlide[] = [
   },
   {
     id: 2,
-    videoUrl:
-      "https://videos.pexels.com/video-files/3129671/3129671-uhd_2560_1440_30fps.mp4",
+    videoUrl:banner2,
     title: "Decisões Baseadas em Dados",
     subtitle: "Relatórios e dashboards em tempo real",
   },
   {
     id: 3,
-    videoUrl: Logo,
+    videoUrl: banner3,
     title: "Automatize Seus Processos",
     subtitle: "Mais produtividade e menos trabalho manual",
   },

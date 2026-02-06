@@ -33,7 +33,7 @@ export function SobreDuBrasil() {
   const { ref, inView } = useInView<HTMLElement>({ threshold: 0.2, once: true })
 
   return (
-    <section ref={ref} className="w-full py-8">
+    <section ref={ref} id="sobrenos" className="w-full py-8">
       <div className="mx-auto w-full max-w-6xl px-6">
         <div
           className={[

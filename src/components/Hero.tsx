@@ -41,7 +41,7 @@ const Hero = () => {
   return (
     <section
       ref={ref}
-      className="relative min-h-screen flex items-center bg-gradient-to-br from-primary via-primary to-primary/90 pt-20"
+      className="relative min-h-screen flex items-center bg-gradient-to-br from-primary via-primary to-primary/90"
     >
       {/* Decorative Elements */}
       <div className="absolute inset-0 overflow-hidden">
@@ -49,7 +49,7 @@ const Hero = () => {
         <div className="absolute bottom-0 left-0 w-80 h-80 bg-accent/5 rounded-full blur-3xl" />
       </div>
 
-      <div className="container mx-auto px-4 py-20 relative z-10">
+      <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
           {/* Badge */}
           <div
