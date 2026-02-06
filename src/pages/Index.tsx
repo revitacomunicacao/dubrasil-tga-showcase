@@ -22,7 +22,6 @@ const Index = () => {
       <DevicesShowcase />
       <ClientsCarousel />
       <SobreDuBrasil />
-      <Planos />
       <SolucoesDuBrasil />
       <Features />
       <Modules />

@@ -2,6 +2,7 @@
 import React, { useEffect, useRef, useState } from "react"
 import { Facebook, Instagram, Linkedin, MessageCircle } from "lucide-react"
 import logo from "@/assets/logo.png"
+import qrcode from "@/assets/qr code.png"
 
 function useInView<T extends HTMLElement>(
   options: IntersectionObserverInit & { once?: boolean } = { threshold: 0.25, once: true }
@@ -47,13 +48,14 @@ const Footer = () => {
           {/* Logo / brand */}
           <div
             className={[
-              "md:col-span-3 flex md:justify-start justify-center",
+              "items-center md:col-span-3 flex flex-col justify-center gap-5",
               inView
                 ? "animate-in fade-in slide-in-from-bottom-6 duration-700"
                 : "opacity-0 translate-y-3",
             ].join(" ")}
           >
-            <img src={logo} alt="DuBrasil Soluções" className="h-10 w-auto" />
+            <img src={logo} alt="DuBrasil Soluções" className="w-40" />
+            <img src={qrcode} alt="DuBrasil Soluções" className="w-[40%]" />
           </div>
 
           {/* Contato */}
