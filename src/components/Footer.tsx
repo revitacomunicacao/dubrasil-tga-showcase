@@ -1,7 +1,7 @@
 // src/components/Footer.tsx
 import React, { useEffect, useRef, useState } from "react"
 import { Facebook, Instagram, Linkedin, MessageCircle } from "lucide-react"
-import logo from "@/assets/logo.png"
+import logo from "@/assets/Logo footer.png"
 import qrcode from "@/assets/qr code.png"
 
 function useInView<T extends HTMLElement>(

@@ -1,6 +1,6 @@
 // src/components/SobreDuBrasil.tsx
 import React, { useEffect, useRef, useState } from "react"
-import Logo from "@/assets/logo.png"
+import Logo from "@/assets/Logo Sobre.png"
 
 function useInView<T extends HTMLElement>(
   options: IntersectionObserverInit & { once?: boolean } = { threshold: 0.25, once: true }
@@ -113,7 +113,7 @@ export function SobreDuBrasil() {
                 <img
                   src={Logo}
                   alt="DuBrasil Soluções"
-                  className="h-16 w-auto md:h-20"
+                  className="w-full"
                   loading="lazy"
                 />
               </div>
