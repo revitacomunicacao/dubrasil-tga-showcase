@@ -102,7 +102,7 @@ const DevicesShowcase = () => {
                 className={[
                   "absolute",
                   feature.position,
-                  "z-20 hidden md:flex items-center gap-2 hover:bg-[#2b91c2] bg-card/95 backdrop-blur-sm rounded-xl px-4 py-3 shadow-xl border border-border/50",
+                  "text-foreground hover:text-white z-20 hidden md:flex items-center gap-2 hover:bg-[#2b91c2] bg-card/95 backdrop-blur-sm rounded-xl px-4 py-3 shadow-xl border border-border/50",
                   inView
                     ? "animate-in fade-in zoom-in-95 slide-in-from-bottom-3 duration-700"
                     : "opacity-0 translate-y-2 scale-[0.98]",
@@ -112,7 +112,7 @@ const DevicesShowcase = () => {
                 <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
                   <Icon className="w-5 h-5 text-primary" />
                 </div>
-                <span className="text-foreground font-medium text-sm whitespace-nowrap">
+                <span className="font-medium text-sm whitespace-nowrap">
                   {feature.label}
                 </span>
               </div>
