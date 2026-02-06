@@ -1,7 +1,7 @@
 // src/components/DevicesShowcase.tsx
 import React, { useEffect, useRef, useState } from "react"
 import { Package, TrendingUp, Wallet, FileText, BarChart3 } from "lucide-react"
-import devicesMockup from "@/assets/devices-mockup.png"
+import devicesMockup from "@/assets/devices.png"
 
 function useInView<T extends HTMLElement>(
   options: IntersectionObserverInit & { once?: boolean } = { threshold: 0.25, once: true }
@@ -130,7 +130,7 @@ const DevicesShowcase = () => {
             <img
               src={devicesMockup}
               alt="ERP TGA em múltiplos dispositivos - notebook, tablet e smartphone"
-              className="w-full h-auto drop-shadow-2xl"
+              className="w-full h-auto drop-shadow-2xl px-20"
               loading="lazy"
             />
           </div>

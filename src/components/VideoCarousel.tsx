@@ -1,151 +1,177 @@
+// src/components/VideoCarousel.tsx
 import { useState, useEffect, useRef } from "react";
 import { ChevronLeft, ChevronRight, Play, Pause } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import Logo from "@/assets/banners tga.png";
 
 interface VideoSlide {
   id: number;
-  videoUrl: string;
+  videoUrl: string; // agora pode ser VÍDEO ou IMAGEM
   title: string;
   subtitle: string;
 }
 
+const isVideoUrl = (url: string) => {
+  // Detecta vídeos por extensão (mais seguro que checar "http")
+  return /\.(mp4|webm|ogg)(\?.*)?$/i.test(url);
+};
+
 const slides: VideoSlide[] = [
   {
     id: 1,
-    videoUrl: "https://videos.pexels.com/video-files/3129671/3129671-uhd_2560_1440_30fps.mp4",
+    videoUrl:
+      "https://videos.pexels.com/video-files/3129671/3129671-uhd_2560_1440_30fps.mp4",
     title: "Controle Total do Seu Negócio",
-    subtitle: "Gestão empresarial integrada em uma única plataforma"
+    subtitle: "Gestão empresarial integrada em uma única plataforma",
   },
   {
     id: 2,
-    videoUrl: "https://videos.pexels.com/video-files/3129671/3129671-uhd_2560_1440_30fps.mp4",
+    videoUrl:
+      "https://videos.pexels.com/video-files/3129671/3129671-uhd_2560_1440_30fps.mp4",
     title: "Decisões Baseadas em Dados",
-    subtitle: "Relatórios e dashboards em tempo real"
+    subtitle: "Relatórios e dashboards em tempo real",
   },
   {
     id: 3,
-    videoUrl: "https://videos.pexels.com/video-files/3129671/3129671-uhd_2560_1440_30fps.mp4",
+    videoUrl: Logo,
     title: "Automatize Seus Processos",
-    subtitle: "Mais produtividade e menos trabalho manual"
-  }
+    subtitle: "Mais produtividade e menos trabalho manual",
+  },
 ];
 
 const VideoCarousel = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isPlaying, setIsPlaying] = useState(true);
+
+  // Mantém refs apenas para slides de vídeo (os slides de imagem ficam null)
   const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
 
   useEffect(() => {
-    // Play only the current video
+    // Toca apenas o vídeo do slide atual (se for vídeo)
     videoRefs.current.forEach((video, index) => {
-      if (video) {
-        if (index === currentSlide && isPlaying) {
-          video.play().catch(() => {});
-        } else {
-          video.pause();
-        }
+      if (!video) return;
+      if (index === currentSlide && isPlaying) {
+        video.play().catch(() => {});
+      } else {
+        video.pause();
       }
     });
   }, [currentSlide, isPlaying]);
 
   useEffect(() => {
     if (!isPlaying) return;
-    
-    const interval = setInterval(() => {
+
+    const current = slides[currentSlide];
+    const durationMs = isVideoUrl(current.videoUrl) ? 8000 : 6000;
+
+    const timeout = setTimeout(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
-    }, 8000);
+    }, durationMs);
 
-    return () => clearInterval(interval);
-  }, [isPlaying]);
+    return () => clearTimeout(timeout);
+  }, [isPlaying, currentSlide]);
 
-  const goToSlide = (index: number) => {
-    setCurrentSlide(index);
-  };
-
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % slides.length);
-  };
-
-  const prevSlide = () => {
+  const goToSlide = (index: number) => setCurrentSlide(index);
+  const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % slides.length);
+  const prevSlide = () =>
     setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
-  };
 
-  const togglePlay = () => {
-    setIsPlaying(!isPlaying);
-  };
+  const togglePlay = () => setIsPlaying((v) => !v);
 
   const openWhatsApp = () => {
-    window.open("https://wa.me/553433228500?text=Olá! Gostaria de saber mais sobre o ERP TGA.", "_blank");
+    window.open(
+      "https://wa.me/553433228500?text=Olá! Gostaria de saber mais sobre o ERP TGA.",
+      "_blank",
+    );
   };
 
   return (
     <section className="relative h-screen w-full overflow-hidden pt-16">
-      {/* Video Slides */}
-      {slides.map((slide, index) => (
-        <div
-          key={slide.id}
-          className={`absolute inset-0 transition-opacity duration-1000 ${
-            index === currentSlide ? "opacity-100 z-10" : "opacity-0 z-0"
-          }`}
-        >
-          {/* Video Background */}
-          <video
-            ref={(el) => (videoRefs.current[index] = el)}
-            className="absolute inset-0 w-full h-full object-cover"
-            src={slide.videoUrl}
-            muted
-            loop
-            playsInline
-          />
-          
-          {/* Overlay */}
-          <div className="absolute inset-0 bg-primary/70" />
+      {/* Slides */}
+      {slides.map((slide, index) => {
+        const isVideo = isVideoUrl(slide.videoUrl);
 
-          {/* Content */}
-          <div className="relative z-20 h-full flex items-center">
-            <div className="container mx-auto px-4">
-              <div className="max-w-3xl">
-                <h1 
-                  className={`text-4xl md:text-5xl lg:text-7xl font-bold text-primary-foreground mb-6 transition-all duration-700 ${
-                    index === currentSlide 
-                      ? "opacity-100 translate-y-0" 
-                      : "opacity-0 translate-y-10"
-                  }`}
-                  style={{ transitionDelay: "200ms" }}
-                >
-                  {slide.title}
-                </h1>
-                <p 
-                  className={`text-xl md:text-2xl text-primary-foreground/80 mb-10 transition-all duration-700 ${
-                    index === currentSlide 
-                      ? "opacity-100 translate-y-0" 
-                      : "opacity-0 translate-y-10"
-                  }`}
-                  style={{ transitionDelay: "400ms" }}
-                >
-                  {slide.subtitle}
-                </p>
-                <div 
-                  className={`transition-all duration-700 ${
-                    index === currentSlide 
-                      ? "opacity-100 translate-y-0" 
-                      : "opacity-0 translate-y-10"
-                  }`}
-                  style={{ transitionDelay: "600ms" }}
-                >
-                  <Button
-                    size="lg"
-                    onClick={openWhatsApp}
-                    className="bg-accent hover:bg-accent/90 text-accent-foreground text-lg px-8 py-6"
+        return (
+          <div
+            key={slide.id}
+            className={`absolute inset-0 transition-opacity duration-1000 ${
+              index === currentSlide ? "opacity-100 z-10" : "opacity-0 z-0"
+            }`}
+          >
+            {/* Background (vídeo ou imagem) */}
+            {isVideo ? (
+              <video
+                ref={(el) => (videoRefs.current[index] = el)}
+                className="absolute inset-0 w-full h-full object-cover"
+                src={slide.videoUrl}
+                muted
+                loop
+                playsInline
+              />
+            ) : (
+              <>
+                {/* garante que ref do índice não fique “presa” se trocar tipo */}
+                {(videoRefs.current[index] = null)}
+                <img
+                  src={slide.videoUrl}
+                  alt={slide.title}
+                  className="absolute inset-0 w-full h-full object-cover"
+                  loading="lazy"
+                />
+              </>
+            )}
+
+            {/* Overlay */}
+            <div className="absolute inset-0 bg-primary/70" />
+
+            {/* Content */}
+            <div className="relative z-20 h-full flex items-center">
+              <div className="container mx-auto px-4">
+                <div className="max-w-3xl">
+                  <h1
+                    className={`text-4xl md:text-5xl lg:text-7xl font-bold text-primary-foreground mb-6 transition-all duration-700 ${
+                      index === currentSlide
+                        ? "opacity-100 translate-y-0"
+                        : "opacity-0 translate-y-10"
+                    }`}
+                    style={{ transitionDelay: "200ms" }}
                   >
-                    Saiba mais
-                  </Button>
+                    {slide.title}
+                  </h1>
+
+                  <p
+                    className={`text-xl md:text-2xl text-primary-foreground/80 mb-10 transition-all duration-700 ${
+                      index === currentSlide
+                        ? "opacity-100 translate-y-0"
+                        : "opacity-0 translate-y-10"
+                    }`}
+                    style={{ transitionDelay: "400ms" }}
+                  >
+                    {slide.subtitle}
+                  </p>
+
+                  <div
+                    className={`transition-all duration-700 ${
+                      index === currentSlide
+                        ? "opacity-100 translate-y-0"
+                        : "opacity-0 translate-y-10"
+                    }`}
+                    style={{ transitionDelay: "600ms" }}
+                  >
+                    <Button
+                      size="lg"
+                      onClick={openWhatsApp}
+                      className="bg-accent hover:bg-accent/90 text-accent-foreground text-lg px-8 py-6"
+                    >
+                      Saiba mais
+                    </Button>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      ))}
+        );
+      })}
 
       {/* Navigation Arrows */}
       <button
@@ -155,6 +181,7 @@ const VideoCarousel = () => {
       >
         <ChevronLeft className="w-6 h-6 text-primary-foreground group-hover:scale-110 transition-transform" />
       </button>
+
       <button
         onClick={nextSlide}
         className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-30 w-12 h-12 bg-primary-foreground/10 hover:bg-primary-foreground/20 backdrop-blur-sm rounded-full flex items-center justify-center transition-all group"
@@ -165,7 +192,7 @@ const VideoCarousel = () => {
 
       {/* Bottom Controls */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-30 flex items-center gap-6">
-        {/* Play/Pause Button */}
+        {/* Play/Pause */}
         <button
           onClick={togglePlay}
           className="w-10 h-10 bg-primary-foreground/10 hover:bg-primary-foreground/20 backdrop-blur-sm rounded-full flex items-center justify-center transition-all"
@@ -178,15 +205,15 @@ const VideoCarousel = () => {
           )}
         </button>
 
-        {/* Dots Navigation */}
+        {/* Dots */}
         <div className="flex gap-3">
           {slides.map((_, index) => (
             <button
               key={index}
               onClick={() => goToSlide(index)}
               className={`h-2 rounded-full transition-all duration-300 ${
-                index === currentSlide 
-                  ? "w-8 bg-accent" 
+                index === currentSlide
+                  ? "w-8 bg-accent"
                   : "w-2 bg-primary-foreground/40 hover:bg-primary-foreground/60"
               }`}
               aria-label={`Ir para slide ${index + 1}`}
