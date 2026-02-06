@@ -41,7 +41,7 @@ const Hero = () => {
   return (
     <section
       ref={ref}
-      className="relative min-h-screen flex items-center bg-gradient-to-br from-primary via-primary to-primary/90"
+      className="pt-[80px] md:pt-[20px] relative min-h-screen flex items-center bg-gradient-to-br from-primary via-primary to-primary/90"
     >
       {/* Decorative Elements */}
       <div className="absolute inset-0 overflow-hidden">

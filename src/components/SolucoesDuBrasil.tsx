@@ -85,8 +85,8 @@ export function SolucoesDuBrasil() {
   return (
     <section ref={ref} id="solucoes" className="w-full py-8">
       
-      <div className="w-full">
-        <img src={bannerTGA} className="w-full" />
+      <div>
+        <img src={bannerTGA} className="h-[270px] md:h-auto object-cover" />
       </div>
 
       <div className="mx-auto w-full max-w-6xl px-6">

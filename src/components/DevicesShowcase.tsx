@@ -131,7 +131,7 @@ const DevicesShowcase = () => {
             <img
               src={devicesMockup}
               alt="ERP TGA em múltiplos dispositivos - notebook, tablet e smartphone"
-              className="w-full h-auto drop-shadow-2xl px-20"
+              className="w-full h-auto drop-shadow-2xl md:px-20"
               loading="lazy"
             />
           </div>

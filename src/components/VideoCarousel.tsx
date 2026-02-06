@@ -124,7 +124,7 @@ const VideoCarousel = () => {
 
   return (
     <section
-      className="relative w-full overflow-hidden pt-16 h-[50vh] md:h-screen"
+      className="relative w-full overflow-hidden pt-16 h-[60vh] md:h-screen"
       style={{ maxWidth: "100vw" }}
     >
       {/* Swipe layer (evita overflow horizontal) */}
