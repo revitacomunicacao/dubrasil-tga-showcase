@@ -55,13 +55,6 @@ const Header = () => {
             Sobre Nós{" "}
           </button>{" "}
           <button
-            onClick={() => scrollToSection("planos")}
-            className="text-primary-foreground/90 hover:text-primary-foreground transition-colors font-medium"
-          >
-            {" "}
-            Planos{" "}
-          </button>{" "}
-          <button
             onClick={() => scrollToSection("solucoes")}
             className="text-primary-foreground/90 hover:text-primary-foreground transition-colors font-medium"
           >
@@ -132,13 +125,6 @@ const Header = () => {
             >
               {" "}
               Sobre Nós{" "}
-            </button>{" "}
-            <button
-              onClick={() => scrollToSection("planos")}
-              className="text-primary-foreground/90 hover:text-primary-foreground transition-colors font-medium"
-            >
-              {" "}
-              Planos{" "}
             </button>{" "}
             <button
               onClick={() => scrollToSection("solucoes")}
