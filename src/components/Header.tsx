@@ -24,11 +24,6 @@ const Header = () => {
             alt="DuBrasil Soluções"
             className="h-10 md:h-12 w-auto"
           />{" "}
-          <img
-            src={logoTGA}
-            alt="DuBrasil Soluções"
-            className="h-10 md:h-12 w-auto"
-          />{" "}
         </div>{" "}
         {/* Desktop Navigation */}{" "}
         <nav className="hidden md:flex items-center gap-8">
