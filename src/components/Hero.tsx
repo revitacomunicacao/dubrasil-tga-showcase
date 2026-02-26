@@ -30,18 +30,36 @@ function useInView<T extends HTMLElement>(
   return { ref, inView }
 }
 
-const WHATSAPP_URL =
-  "https://wa.me/553433228500?text=Olá! Gostaria de saber mais sobre o ERP TGA."
+const WHATSAPP_PHONE = "553433228500"
+
+function buildWhatsAppUrl(message: string) {
+  const text = encodeURIComponent(message)
+  return `https://wa.me/${WHATSAPP_PHONE}?text=${text}`
+}
 
 const Hero = () => {
   const { ref, inView } = useInView<HTMLElement>({ threshold: 0.25, once: true })
 
-  const openWhatsApp = () => window.open(WHATSAPP_URL, "_blank")
+  const openWhatsAppOrganizar = () =>
+    window.open(
+      buildWhatsAppUrl(
+        "Oi! Quero organizar minha gestão com ERP (DuBrasil Sistemas).\n\nMinha prioridade é:\n( ) financeiro\n( ) estoque\n( ) emissão/NF\n( ) PDV\n( ) processos\n\nSegmento: ___ | Nº de usuários: ___"
+      ),
+      "_blank"
+    )
+
+  const openWhatsAppModulo = () =>
+    window.open(
+      buildWhatsAppUrl(
+        "Oi! Quero entender qual módulo preciso no ERP (DuBrasil Sistemas).\n\nMinha prioridade é:\n( ) financeiro\n( ) estoque\n( ) emissão/NF\n( ) PDV\n( ) processos\n\nSegmento: ___ | Nº de usuários: ___"
+      ),
+      "_blank"
+    )
 
   return (
     <section
       ref={ref}
-      className="pt-[80px] md:pt-[20px] relative min-h-screen flex items-center bg-gradient-to-br from-primary via-primary to-primary/90"
+      className="pt-[80px] md:pt-[20px] relative min-h-[92svh] flex items-center bg-gradient-to-br from-primary via-primary to-primary/90"
     >
       {/* Decorative Elements */}
       <div className="absolute inset-0 overflow-hidden">
@@ -62,7 +80,7 @@ const Hero = () => {
           >
             <span className="w-2 h-2 bg-accent rounded-full animate-pulse" />
             <span className="text-primary-foreground/90 text-sm font-medium">
-              Sistema de Gestão Empresarial Completo
+              Resposta rápida • Implantação orientada • Suporte humanizado
             </span>
           </div>
 
@@ -75,9 +93,19 @@ const Hero = () => {
                 : "opacity-0 translate-y-3",
             ].join(" ")}
           >
-            Gerencie toda sua empresa em um{" "}
-            <span className="text-accent">único lugar</span>
+            DuBrasil Sistemas
           </h1>
+
+          <h2
+            className={[
+              "text-2xl md:text-3xl lg:text-4xl font-semibold text-primary-foreground/95 mb-6 leading-snug",
+              inView
+                ? "animate-in fade-in slide-in-from-bottom-5 duration-700 delay-200"
+                : "opacity-0 translate-y-3",
+            ].join(" ")}
+          >
+            ERP simples, completo e pronto para organizar sua operação
+          </h2>
 
           {/* Descrição */}
           <p
@@ -88,8 +116,9 @@ const Hero = () => {
                 : "opacity-0 translate-y-3",
             ].join(" ")}
           >
-            O ERP TGA é a solução completa para gestão empresarial. Controle
-            vendas, estoque, finanças e muito mais com eficiência e simplicidade.
+            Controle estoque, financeiro, vendas e emissão fiscal em um só lugar,
+            com implantação assistida e suporte para sua rotina rodar com clareza
+            e previsibilidade.
           </p>
 
           {/* CTAs */}
@@ -103,10 +132,10 @@ const Hero = () => {
           >
             <Button
               size="lg"
-              onClick={openWhatsApp}
+              onClick={openWhatsAppOrganizar}
               className="bg-accent hover:bg-accent/90 text-accent-foreground text-lg px-8 py-6 group"
             >
-              Solicitar Demonstração
+              Quero organizar minha gestão
               <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
             </Button>
 
@@ -114,42 +143,11 @@ const Hero = () => {
               size="lg"
               variant="outline"
               className="border-primary-foreground/30 text-primary-foreground bg-primary-foreground/10 text-lg px-8 py-6"
-              onClick={() =>
-                document
-                  .getElementById("recursos")
-                  ?.scrollIntoView({ behavior: "smooth" })
-              }
+              onClick={openWhatsAppModulo}
             >
               <Play className="mr-2" size={20} />
-              Conhecer Recursos
+              Quero entender qual módulo preciso
             </Button>
-          </div>
-
-          {/* Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-20 pt-10 border-t border-primary-foreground/10">
-            {[
-              { value: "25+", label: "Anos de Experiência", delay: "delay-150" },
-              { value: "1000+", label: "Clientes Ativos", delay: "delay-250" },
-              { value: "15+", label: "Módulos Integrados", delay: "delay-350" },
-              { value: "99.9%", label: "Uptime Garantido", delay: "delay-450" },
-            ].map((stat, index) => (
-              <div
-                key={index}
-                className={[
-                  "text-center",
-                  inView
-                    ? `animate-in fade-in slide-in-from-bottom-4 duration-700 ${stat.delay}`
-                    : "opacity-0 translate-y-3",
-                ].join(" ")}
-              >
-                <div className="text-3xl md:text-4xl font-bold text-accent mb-1">
-                  {stat.value}
-                </div>
-                <div className="text-primary-foreground/70 text-sm">
-                  {stat.label}
-                </div>
-              </div>
-            ))}
           </div>
         </div>
       </div>

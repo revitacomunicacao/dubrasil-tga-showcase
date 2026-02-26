@@ -34,10 +34,9 @@ const CTA = () => {
   const { ref, inView } = useInView<HTMLElement>({ threshold: 0.2, once: true })
 
   const openWhatsApp = () => {
-    window.open(
-      "https://wa.me/553433228500?text=Olá! Gostaria de saber mais sobre o ERP TGA.",
-      "_blank"
-    )
+    const message =
+      "Oi! Quero organizar minha gestão com ERP (DuBrasil Sistemas).\n\nMinha prioridade é:\n( ) financeiro\n( ) estoque\n( ) emissão/NF\n( ) PDV\n( ) processos\n\nSegmento: ___ | Nº de usuários: ___"
+    window.open(`https://wa.me/553433228500?text=${encodeURIComponent(message)}`, "_blank")
   }
 
   return (
@@ -52,7 +51,7 @@ const CTA = () => {
                 : "opacity-0 translate-y-3",
             ].join(" ")}
           >
-            Pronto para transformar a gestão da sua empresa?
+            Quer saber se o ERP certo resolve seu gargalo atual?
           </h2>
 
           <p
@@ -63,8 +62,8 @@ const CTA = () => {
                 : "opacity-0 translate-y-3",
             ].join(" ")}
           >
-            Entre em contato agora mesmo e descubra como o ERP TGA pode
-            impulsionar os resultados do seu negócio.
+            Me chama no WhatsApp e eu te ajudo a mapear o que você precisa (sem
+            complicar).
           </p>
 
           <div
@@ -80,7 +79,7 @@ const CTA = () => {
               className="bg-accent hover:bg-accent/90 text-accent-foreground text-lg px-10 py-7 group"
             >
               <MessageCircle className="mr-2" />
-              Falar com Especialista
+              Quero organizar minha gestão
               <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
             </Button>
           </div>
@@ -93,7 +92,7 @@ const CTA = () => {
                 : "opacity-0 translate-y-2",
             ].join(" ")}
           >
-            Resposta rápida via WhatsApp • Sem compromisso
+            Sem compromisso • Direcionamento rápido
           </p>
         </div>
       </div>

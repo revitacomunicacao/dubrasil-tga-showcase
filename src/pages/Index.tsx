@@ -1,16 +1,13 @@
 import Header from "@/components/Header";
 import VideoCarousel from "@/components/VideoCarousel";
 import Hero from "@/components/Hero";
-import DevicesShowcase from "@/components/DevicesShowcase";
-import ClientsCarousel from "@/components/ClientsCarousel";
-import Features from "@/components/Features";
+import ErpResolve from "@/components/ErpResolve";
 import Modules from "@/components/Modules";
+import ParaQuemE from "@/components/ParaQuemE";
 import Benefits from "@/components/Benefits";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
-import { Planos } from "@/components/Planos";
-import { SobreDuBrasil } from "@/components/SobreDuBrasil";
 import { SolucoesDuBrasil } from "@/components/SolucoesDuBrasil";
 
 const Index = () => {
@@ -19,12 +16,10 @@ const Index = () => {
       <Header />
       <VideoCarousel />
       <Hero />
-      <DevicesShowcase />
-      <ClientsCarousel />
-      <SobreDuBrasil />
-      <SolucoesDuBrasil />
-      <Features />
+      <ErpResolve />
       <Modules />
+      <SolucoesDuBrasil />
+      <ParaQuemE />
       <Benefits />
       <CTA />
       <Footer />

@@ -2,7 +2,12 @@ import { MessageCircle } from "lucide-react";
 
 const WhatsAppButton = () => {
   const openWhatsApp = () => {
-    window.open("https://wa.me/553433228500?text=Olá! Gostaria de saber mais sobre o ERP TGA.", "_blank");
+    const message =
+      "Oi! Quero organizar minha gestão com ERP (DuBrasil Sistemas).\n\nMinha prioridade é:\n( ) financeiro\n( ) estoque\n( ) emissão/NF\n( ) PDV\n( ) processos\n\nSegmento: ___ | Nº de usuários: ___";
+    window.open(
+      `https://wa.me/553433228500?text=${encodeURIComponent(message)}`,
+      "_blank"
+    );
   };
 
   return (

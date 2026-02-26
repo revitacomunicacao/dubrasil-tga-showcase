@@ -1,0 +1,70 @@
+import React, { useEffect, useRef, useState } from "react"
+import imagemdispositivos from "@/assets/devices.png"
+
+function useInView<T extends HTMLElement>(
+  options: IntersectionObserverInit & { once?: boolean } = { threshold: 0.25, once: true }
+) {
+  const ref = useRef<T | null>(null)
+  const [inView, setInView] = useState(false)
+
+  useEffect(() => {
+    const el = ref.current
+    if (!el) return
+
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        setInView(true)
+        if (options.once !== false) observer.unobserve(el)
+      } else if (options.once === false) {
+        setInView(false)
+      }
+    }, options)
+
+    observer.observe(el)
+    return () => observer.disconnect()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
+  return { ref, inView }
+}
+
+export default function ErpResolve() {
+  const { ref, inView } = useInView<HTMLElement>({ threshold: 0.2, once: true })
+
+  return (
+    <section ref={ref} id="o-que-resolve" className="py-10 bg-background">
+      <div className="container mx-auto px-4">
+        <div className="max-w-4xl mx-auto">
+
+          <div className="w-full flex justify-center">
+            <img className="w-[60%]" src={imagemdispositivos} />
+          </div>
+
+          <h2
+            className={[
+              "text-3xl md:text-4xl font-bold text-foreground mb-4",
+              inView
+                ? "animate-in fade-in slide-in-from-bottom-6 duration-700"
+                : "opacity-0 translate-y-3",
+            ].join(" ")}
+          >
+            Menos planilha. Menos retrabalho. Mais controle.
+          </h2>
+
+          <p
+            className={[
+              "text-muted-foreground text-lg leading-relaxed",
+              inView
+                ? "animate-in fade-in slide-in-from-bottom-6 duration-700 delay-150"
+                : "opacity-0 translate-y-3",
+            ].join(" ")}
+          >
+            O ERP é para empresas que querem parar de “apagar incêndio” e passar a
+            ter rotina: compras, vendas, estoque, financeiro e fiscal funcionando
+            com integração e visibilidade para decisão.
+          </p>
+        </div>
+      </div>
+    </section>
+  )
+}
