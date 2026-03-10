@@ -1,17 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
-
 @layer base {
   :root {
-    /* DuBrasil Soluções - Brand Colors */
-    /* Primary: #032048 = hsl(213, 93%, 15%) */
-    /* White background */
-    
     --background: 0 0% 100%;
     --foreground: 213 93% 15%;
 
@@ -98,5 +92,6 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    font-family: 'Poppins', sans-serif;
   }
 }
