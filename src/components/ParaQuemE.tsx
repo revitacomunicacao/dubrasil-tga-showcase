@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from "react"
-import { Store, ShoppingBasket, BriefcaseBusiness, Layers } from "lucide-react"
+import { ShoppingCart, Store, BriefcaseBusiness, Layers } from "lucide-react"
 
 function useInView<T extends HTMLElement>(
-  options: IntersectionObserverInit & { once?: boolean } = { threshold: 0.25, once: true }
+  options: IntersectionObserverInit & { once?: boolean } = { threshold: 0.2, once: true }
 ) {
   const ref = useRef<T | null>(null)
   const [inView, setInView] = useState(false)
@@ -23,22 +23,22 @@ function useInView<T extends HTMLElement>(
 }
 
 const items = [
-  { label: "Comercial, varejo, lojas", Icon: Store },
-  { label: "Operações que precisam de mais agilidade nas operações", Icon: ShoppingBasket },
-  { label: "Prestadores de serviços, pequenas empresas", Icon: BriefcaseBusiness },
-  { label: "Integrar financeiro + estoque com agilidade", Icon: Layers },
+  { label: "Mercados e operações com alto giro", Icon: ShoppingCart },
+  { label: "Comércio varejista / lojas", Icon: Store },
+  { label: "Prestadores de serviço e pequenas empresas", Icon: BriefcaseBusiness },
+  { label: "Operações que precisam integrar financeiro + estoque + emissão", Icon: Layers },
 ] as const
 
 export default function ParaQuemE() {
   const { ref, inView } = useInView<HTMLElement>({ threshold: 0.2, once: true })
 
   return (
-    <section ref={ref} id="para-quem-e" className="py-20 bg-secondary">
+    <section ref={ref} id="para-quem-e" className="py-16 bg-secondary">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">
           <h2
             className={[
-              "text-3xl md:text-4xl font-bold text-foreground mb-10 text-center",
+              "text-2xl md:text-3xl font-bold text-foreground mb-10 text-center italic",
               inView ? "animate-in fade-in slide-in-from-bottom-6 duration-700" : "opacity-0 translate-y-3",
             ].join(" ")}
           >
@@ -50,15 +50,15 @@ export default function ParaQuemE() {
               <div
                 key={label}
                 className={[
-                  "flex flex-col items-center text-center gap-4",
+                  "bg-card rounded-2xl p-5 flex flex-col items-center text-center gap-4",
                   inView ? "animate-in fade-in slide-in-from-bottom-6 duration-700" : "opacity-0 translate-y-3",
                 ].join(" ")}
                 style={inView ? { animationDelay: `${idx * 90}ms` } : undefined}
               >
-                <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center">
-                  <Icon className="h-8 w-8 text-primary" aria-hidden="true" />
+                <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center">
+                  <Icon className="h-7 w-7 text-primary" aria-hidden="true" />
                 </div>
-                <span className="text-sm font-medium text-foreground leading-snug">{label}</span>
+                <span className="text-xs font-medium text-foreground leading-snug">{label}</span>
               </div>
             ))}
           </div>

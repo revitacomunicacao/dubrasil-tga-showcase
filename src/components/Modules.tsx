@@ -7,7 +7,7 @@ import moduleMobilidade from "@/assets/module-mobilidade.png"
 import moduleBi from "@/assets/module-bi.png"
 
 function useInView<T extends HTMLElement>(
-  options: IntersectionObserverInit & { once?: boolean } = { threshold: 0.15, once: true }
+  options: IntersectionObserverInit & { once?: boolean } = { threshold: 0.1, once: true }
 ) {
   const ref = useRef<T | null>(null)
   const [inView, setInView] = useState(false)
@@ -33,84 +33,84 @@ const modules = [
     title: "Estoque e Compras",
     subtitle: "Controle de estoque rápido e organizado",
     description:
-      "Cadastros, movimentações, entradas/saídas, e relatórios para evitar rupturas e excessos de mercadoria.",
+      "Cadastros, movimentações, entradas/saídas, depósitos e relatórios para evitar rupturas e excesso de mercadoria.",
   },
   {
     image: moduleFinanceiro,
     title: "Financeiro",
     subtitle: "Previsibilidade no caixa e na operação",
     description:
-      "Contas a pagar/receber, controle e visão para tomadas de decisão com menos \"surpresa\" na hora de fechar.",
+      "Contas a pagar/receber, controle e visão para tomada de decisão com menos \"surpresa\" no fim do mês.",
   },
   {
     image: moduleFiscal,
     title: "Fiscal e Emissão de Notas",
     subtitle: "Emissão de nota fiscal sem burocracia",
     description:
-      "Rotinas fiscais e emissão de documentos eletrônicos (conforme o contrato tratado/necessidade), com foco em produtividade e economia.",
+      "Rotinas fiscais e emissão de documentos eletrônicos (conforme o pacote contratado/necessidade), com foco em produtividade e conformidade.",
   },
   {
     image: modulePdv,
     title: "PDV e Frente de Caixa",
-    subtitle: "Vendas com velocidade e controle",
+    subtitle: "Vendas no balcão com velocidade e controle",
     description:
-      "PDV com recursos de operação (conforme módulos) possibilidade de integração com TEF, na forma de venda ideal para agilizar o atendimento.",
+      "PDV com recursos de operação (e possibilidade de integrações como TEF, conforme cenário).",
   },
   {
     image: moduleMobilidade,
     title: "Mobilidade e Operação em Campo",
-    subtitle: "Venda móvel para equipes externas",
+    subtitle: "Venda móvel / operação mobile",
     description:
-      "Para equipes externas que precisam vender/consultar em tempo real e de forma ágil.",
+      "Para equipes externas que precisam vender/consultar e manter a operação rodando fora do escritório.",
   },
   {
     image: moduleBi,
     title: "BI e Indicadores",
     subtitle: "Indicadores para decisão",
     description:
-      "Dashboards/relatórios para gestão. Business Intelligence para apoiar decisões estratégicas com agilidade.",
+      "Dashboards/relatórios para gestão (conforme módulos).",
   },
 ]
 
 const Modules = () => {
-  const { ref, inView } = useInView<HTMLElement>({ threshold: 0.1, once: true })
+  const { ref, inView } = useInView<HTMLElement>({ threshold: 0.05, once: true })
 
   return (
-    <section ref={ref} id="modulos" className="py-20 bg-background">
+    <section ref={ref} id="modulos" className="py-16 bg-secondary">
       <div className="container mx-auto px-4">
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
           {modules.map((module, index) => (
             <div
               key={index}
               className={[
-                "bg-card border border-border rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300 group",
+                "bg-card rounded-2xl overflow-hidden hover:shadow-lg transition-all duration-300 group flex flex-col",
                 inView
                   ? "animate-in fade-in slide-in-from-bottom-6 duration-700"
                   : "opacity-0 translate-y-3",
               ].join(" ")}
               style={inView ? { animationDelay: `${index * 100}ms` } : undefined}
             >
-              {/* Image */}
-              <div className="h-48 overflow-hidden bg-secondary">
-                <img
-                  src={module.image}
-                  alt={module.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  loading="lazy"
-                />
-              </div>
-
-              {/* Content */}
-              <div className="p-6">
+              {/* Text on top */}
+              <div className="p-5 pb-3">
                 <h3 className="text-lg font-bold text-foreground mb-1">
                   {module.title}
                 </h3>
-                <p className="text-sm font-medium text-primary mb-3">
+                <p className="text-xs font-semibold text-primary mb-2">
                   {module.subtitle}
                 </p>
-                <p className="text-sm text-muted-foreground leading-relaxed">
+                <p className="text-xs text-muted-foreground leading-relaxed">
                   {module.description}
                 </p>
+              </div>
+
+              {/* Image on bottom */}
+              <div className="mt-auto h-44 overflow-hidden">
+                <img
+                  src={module.image}
+                  alt={module.title}
+                  className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                  loading="lazy"
+                />
               </div>
             </div>
           ))}
