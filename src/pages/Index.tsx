@@ -1,7 +1,6 @@
 import Header from "@/components/Header";
 import VideoCarousel from "@/components/VideoCarousel";
 import Hero from "@/components/Hero";
-import ErpResolve from "@/components/ErpResolve";
 import Modules from "@/components/Modules";
 import ParaQuemE from "@/components/ParaQuemE";
 import Benefits from "@/components/Benefits";
@@ -16,7 +15,6 @@ const Index = () => {
       <Header />
       <VideoCarousel />
       <Hero />
-      <ErpResolve />
       <Modules />
       <SolucoesDuBrasil />
       <ParaQuemE />
