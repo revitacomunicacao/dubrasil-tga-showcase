@@ -1,7 +1,7 @@
-// src/components/Hero.tsx
 import React, { useEffect, useRef, useState } from "react"
-import { ArrowRight, Play } from "lucide-react"
+import { ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import newMockups from "@/assets/new-mockups.png"
 
 function useInView<T extends HTMLElement>(
   options: IntersectionObserverInit & { once?: boolean } = { threshold: 0.2, once: true }
@@ -12,7 +12,6 @@ function useInView<T extends HTMLElement>(
   useEffect(() => {
     const el = ref.current
     if (!el) return
-
     const observer = new IntersectionObserver(([entry]) => {
       if (entry.isIntersecting) {
         setInView(true)
@@ -21,7 +20,6 @@ function useInView<T extends HTMLElement>(
         setInView(false)
       }
     }, options)
-
     observer.observe(el)
     return () => observer.disconnect()
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -38,9 +36,9 @@ function buildWhatsAppUrl(message: string) {
 }
 
 const Hero = () => {
-  const { ref, inView } = useInView<HTMLElement>({ threshold: 0.25, once: true })
+  const { ref, inView } = useInView<HTMLElement>({ threshold: 0.15, once: true })
 
-  const openWhatsAppOrganizar = () =>
+  const openWhatsApp = () =>
     window.open(
       buildWhatsAppUrl(
         "Oi! Quero organizar minha gestão com ERP (DuBrasil Sistemas).\n\nMinha prioridade é:\n( ) financeiro\n( ) estoque\n( ) emissão/NF\n( ) PDV\n( ) processos\n\nSegmento: ___ | Nº de usuários: ___"
@@ -48,107 +46,84 @@ const Hero = () => {
       "_blank"
     )
 
-  const openWhatsAppModulo = () =>
-    window.open(
-      buildWhatsAppUrl(
-        "Oi! Quero entender qual módulo preciso no ERP (DuBrasil Sistemas).\n\nMinha prioridade é:\n( ) financeiro\n( ) estoque\n( ) emissão/NF\n( ) PDV\n( ) processos\n\nSegmento: ___ | Nº de usuários: ___"
-      ),
-      "_blank"
-    )
-
   return (
-    <section
-      ref={ref}
-      className="pt-[80px] md:pt-[20px] relative min-h-[92svh] flex items-center bg-gradient-to-br from-primary via-primary to-primary/90"
-    >
-      {/* Decorative Elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-1/4 right-0 w-96 h-96 bg-accent/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 left-0 w-80 h-80 bg-accent/5 rounded-full blur-3xl" />
+    <section ref={ref} className="py-16 md:py-24 bg-secondary relative overflow-hidden">
+      {/* Decorative gear/network graphic */}
+      <div className="absolute top-0 right-0 w-[300px] h-[300px] opacity-10">
+        <svg viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
+          <circle cx="200" cy="80" r="30" fill="hsl(var(--primary))" />
+          <circle cx="250" cy="150" r="20" fill="hsl(var(--primary))" />
+          <circle cx="150" cy="50" r="15" fill="hsl(var(--primary))" />
+          <circle cx="260" cy="60" r="25" fill="hsl(var(--primary))" />
+          <line x1="200" y1="80" x2="250" y2="150" stroke="hsl(var(--primary))" strokeWidth="3" />
+          <line x1="150" y1="50" x2="200" y2="80" stroke="hsl(var(--primary))" strokeWidth="3" />
+          <line x1="260" y1="60" x2="200" y2="80" stroke="hsl(var(--primary))" strokeWidth="3" />
+          {/* Gear shapes */}
+          <path d="M180 120 L190 130 L185 145 L170 145 L165 130 Z" fill="hsl(var(--primary))" />
+          <path d="M230 100 L245 105 L245 120 L230 125 L220 115 Z" fill="hsl(var(--primary))" />
+          <path d="M270 180 L280 195 L275 210 L260 210 L255 195 Z" fill="hsl(var(--primary))" />
+        </svg>
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
-        <div className="max-w-4xl mx-auto text-center">
-          {/* Badge */}
-          <div
+        <div className="text-center max-w-3xl mx-auto mb-12">
+          <p
             className={[
-              "inline-flex items-center gap-2 bg-primary-foreground/10 backdrop-blur-sm rounded-full px-4 py-2 mb-8",
-              inView
-                ? "animate-in fade-in slide-in-from-top-4 duration-700"
-                : "opacity-0 translate-y-[-8px]",
-            ].join(" ")}
-          >
-            <span className="w-2 h-2 bg-accent rounded-full animate-pulse" />
-            <span className="text-primary-foreground/90 text-sm font-medium">
-              Resposta rápida • Implantação orientada • Suporte humanizado
-            </span>
-          </div>
-
-          {/* Título */}
-          <h1
-            className={[
-              "text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground mb-6 leading-tight",
-              inView
-                ? "animate-in fade-in slide-in-from-bottom-5 duration-700 delay-150"
-                : "opacity-0 translate-y-3",
+              "text-sm font-medium text-muted-foreground mb-4 tracking-wide",
+              inView ? "animate-in fade-in slide-in-from-top-4 duration-700" : "opacity-0",
             ].join(" ")}
           >
             DuBrasil Sistemas
-          </h1>
+          </p>
 
           <h2
             className={[
-              "text-2xl md:text-3xl lg:text-4xl font-semibold text-primary-foreground/95 mb-6 leading-snug",
-              inView
-                ? "animate-in fade-in slide-in-from-bottom-5 duration-700 delay-200"
-                : "opacity-0 translate-y-3",
+              "text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6 leading-tight",
+              inView ? "animate-in fade-in slide-in-from-bottom-5 duration-700 delay-100" : "opacity-0 translate-y-3",
             ].join(" ")}
           >
-            ERP simples, completo e pronto para organizar sua operação
+            ERPs simples, completos e prontos para organizar sua operação
           </h2>
 
-          {/* Descrição */}
           <p
             className={[
-              "text-lg md:text-xl text-primary-foreground/80 mb-10 max-w-2xl mx-auto",
-              inView
-                ? "animate-in fade-in slide-in-from-bottom-5 duration-700 delay-300"
-                : "opacity-0 translate-y-3",
+              "text-muted-foreground text-base md:text-lg leading-relaxed mb-8 max-w-2xl mx-auto",
+              inView ? "animate-in fade-in slide-in-from-bottom-5 duration-700 delay-200" : "opacity-0 translate-y-3",
             ].join(" ")}
           >
-            Controle estoque, financeiro, vendas e emissão fiscal em um só lugar,
-            com implantação assistida e suporte para sua rotina rodar com clareza
-            e previsibilidade.
+            Controle estoques, financeiro, vendas e emissões fiscais em um só lugar,
+            com implantação ágil e suporte para sua rotina com clareza e previsibilidade.
           </p>
 
-          {/* CTAs */}
           <div
             className={[
-              "flex flex-col sm:flex-row gap-4 justify-center",
-              inView
-                ? "animate-in fade-in slide-in-from-bottom-5 duration-700 delay-500"
-                : "opacity-0 translate-y-3",
+              inView ? "animate-in fade-in slide-in-from-bottom-5 duration-700 delay-300" : "opacity-0 translate-y-3",
             ].join(" ")}
           >
             <Button
               size="lg"
-              onClick={openWhatsAppOrganizar}
-              className="bg-accent hover:bg-accent/90 text-accent-foreground text-lg px-8 py-6 group"
+              onClick={openWhatsApp}
+              className="bg-primary hover:bg-primary/90 text-primary-foreground text-base px-8 py-6 group"
             >
-              Quero organizar minha gestão
+              Organizar minha gestão
               <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
             </Button>
-
-            <Button
-              size="lg"
-              variant="outline"
-              className="border-primary-foreground/30 text-primary-foreground bg-primary-foreground/10 text-lg px-8 py-6"
-              onClick={openWhatsAppModulo}
-            >
-              <Play className="mr-2" size={20} />
-              Quero entender qual módulo preciso
-            </Button>
           </div>
+        </div>
+
+        {/* Devices mockup image */}
+        <div
+          className={[
+            "max-w-5xl mx-auto",
+            inView ? "animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-400" : "opacity-0 translate-y-6",
+          ].join(" ")}
+        >
+          <img
+            src={newMockups}
+            alt="ERP DuBrasil em múltiplos dispositivos - desktop, notebook e smartphone"
+            className="w-full h-auto"
+            loading="lazy"
+          />
         </div>
       </div>
     </section>
