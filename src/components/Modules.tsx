@@ -103,12 +103,12 @@ const Modules = () => {
                 </p>
               </div>
 
-              {/* Image on bottom - taller for elongated cards */}
-              <div className="mt-auto h-56 overflow-hidden">
+              {/* Image on bottom - contain fully, no cropping */}
+              <div className="mt-auto flex-1 min-h-[220px] flex items-end justify-center p-3 pt-0">
                 <img
                   src={module.image}
                   alt={module.title}
-                  className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                  className="w-full h-auto max-h-[250px] object-contain group-hover:scale-105 transition-transform duration-500"
                   loading="lazy"
                 />
               </div>
