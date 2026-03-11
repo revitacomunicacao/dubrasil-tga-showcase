@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react"
-import moduleEstoque from "@/assets/module-bi.png"
+import moduleEstoque from "@/assets/module-estoque.png"
 import moduleFinanceiro from "@/assets/module-financeiro.png"
 import moduleFiscal from "@/assets/module-fiscal.png"
 import modulePdv from "@/assets/module-pdv.png"
