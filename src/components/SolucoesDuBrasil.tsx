@@ -69,8 +69,8 @@ export function SolucoesDuBrasil() {
         <img src={bannerTGA} alt="Soluções TGA" className="w-full h-auto object-cover" />
       </div>
 
-      {/* Solution cards */}
-      <div className="py-12 bg-secondary">
+      {/* Solution cards on dark background */}
+      <div className="py-12 bg-primary">
         <div className="mx-auto w-full max-w-6xl px-6">
           <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {SOLUTIONS.map((s, idx) => {
@@ -78,17 +78,17 @@ export function SolucoesDuBrasil() {
                 <div
                   key={s.title}
                   className={[
-                    "bg-primary rounded-2xl p-6 flex flex-col gap-3 hover:shadow-xl transition-all duration-300",
+                    "bg-card rounded-2xl p-6 flex flex-col gap-3 hover:shadow-xl transition-all duration-300",
                     inView
                       ? "animate-in fade-in slide-in-from-bottom-6 duration-700"
                       : "opacity-0 translate-y-3",
                   ].join(" ")}
                   style={inView ? { animationDelay: `${idx * 120}ms` } : undefined}
                 >
-                  <h3 className="text-base font-bold text-primary-foreground leading-tight">
+                  <h3 className="text-base font-bold text-foreground leading-tight">
                     {s.title}
                   </h3>
-                  <p className="text-xs leading-relaxed text-primary-foreground/70 flex-1">
+                  <p className="text-xs leading-relaxed text-muted-foreground flex-1">
                     {s.description}
                   </p>
                 </div>
