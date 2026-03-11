@@ -31,7 +31,7 @@ const Hero = () => {
         {/* Devices mockup image */}
         <div
           className={[
-            "max-w-4xl mx-auto",
+            "max-w-3xl mx-auto",
             inView ? "animate-in fade-in slide-in-from-bottom-8 duration-1000" : "opacity-0 translate-y-6",
           ].join(" ")}
         >
