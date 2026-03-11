@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react"
-import moduleEstoque from "@/assets/module-bi.png"
+import moduleEstoque from "@/assets/module-estoque.png"
 import moduleFinanceiro from "@/assets/module-financeiro.png"
 import moduleFiscal from "@/assets/module-fiscal.png"
 import modulePdv from "@/assets/module-pdv.png"
@@ -91,20 +91,20 @@ const Modules = () => {
               style={inView ? { animationDelay: `${index * 100}ms` } : undefined}
             >
               {/* Text on top */}
-              <div className="p-5 pb-3">
+              <div className="p-5 pb-2">
                 <h3 className="text-lg font-bold text-foreground mb-1">
                   {module.title}
                 </h3>
-                <p className="text-xs font-semibold text-primary mb-2">
+                <p className="text-xs font-semibold text-primary mb-1">
                   {module.subtitle}
                 </p>
-                <p className="text-xs text-muted-foreground leading-relaxed">
+                <p className="text-[11px] text-muted-foreground leading-relaxed">
                   {module.description}
                 </p>
               </div>
 
-              {/* Image on bottom */}
-              <div className="mt-auto h-44 overflow-hidden">
+              {/* Image on bottom - taller for elongated cards */}
+              <div className="mt-auto h-56 overflow-hidden">
                 <img
                   src={module.image}
                   alt={module.title}
