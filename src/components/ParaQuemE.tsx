@@ -35,7 +35,7 @@ export default function ParaQuemE() {
   return (
     <section ref={ref} id="para-quem-e" className="py-16 bg-secondary">
       <div className="container mx-auto px-4">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-5xl mx-auto">
           <h2
             className={[
               "text-2xl md:text-3xl font-bold text-foreground mb-10 text-center italic",
@@ -58,7 +58,7 @@ export default function ParaQuemE() {
                 <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center">
                   <Icon className="h-7 w-7 text-primary" aria-hidden="true" />
                 </div>
-                <span className="text-xs font-medium text-foreground leading-snug">{label}</span>
+                <span className="text-sm font-medium text-foreground leading-snug">{label}</span>
               </div>
             ))}
           </div>

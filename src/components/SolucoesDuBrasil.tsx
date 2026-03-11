@@ -70,8 +70,8 @@ export function SolucoesDuBrasil() {
       </div>
 
       {/* Solution cards on dark background */}
-      <div className="py-12 bg-primary">
-        <div className="mx-auto w-full max-w-6xl px-6">
+      <div className="py-12 bg-[#eef2f6]">
+        <div className="w-full px-20">
           <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {SOLUTIONS.map((s, idx) => {
               return (
@@ -85,10 +85,10 @@ export function SolucoesDuBrasil() {
                   ].join(" ")}
                   style={inView ? { animationDelay: `${idx * 120}ms` } : undefined}
                 >
-                  <h3 className="text-base font-bold text-foreground leading-tight">
+                  <h3 className="text-2xl font-bold text-foreground leading-tight">
                     {s.title}
                   </h3>
-                  <p className="text-xs leading-relaxed text-muted-foreground flex-1">
+                  <p className="text-sm leading-relaxed text-muted-foreground flex-1">
                     {s.description}
                   </p>
                 </div>

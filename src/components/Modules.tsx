@@ -78,7 +78,7 @@ const Modules = () => {
   return (
     <section ref={ref} id="modulos" className="py-16 bg-secondary">
       <div className="container mx-auto px-4">
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12">
           {modules.map((module, index) => (
             <div
               key={index}
@@ -92,23 +92,23 @@ const Modules = () => {
             >
               {/* Text on top */}
               <div className="p-5 pb-2">
-                <h3 className="text-lg font-bold text-foreground mb-1">
+                <h3 className="text-3xl font-bold text-foreground mb-1 py-4 h-[100px]">
                   {module.title}
                 </h3>
-                <p className="text-xs font-semibold text-primary mb-1">
+                <p className="text-base font-semibold text-primary mb-1">
                   {module.subtitle}
                 </p>
-                <p className="text-[11px] text-muted-foreground leading-relaxed">
+                <p className="text-sm text-muted-foreground leading-relaxed">
                   {module.description}
                 </p>
               </div>
 
               {/* Image on bottom - contain fully, no cropping */}
-              <div className="mt-auto flex-1 min-h-[220px] flex items-end justify-center p-3 pt-0">
+              <div className="flex">
                 <img
                   src={module.image}
                   alt={module.title}
-                  className="w-full h-auto max-h-[250px] object-contain group-hover:scale-105 transition-transform duration-500"
+                  className="w-full h-[350px] object-cover object-top group-hover:scale-105 transition-transform duration-500"
                   loading="lazy"
                 />
               </div>
