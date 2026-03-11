@@ -46,7 +46,7 @@ const Hero = () => {
         {/* Text card overlapping bottom */}
         <div
           className={[
-            "max-w-3xl mx-auto bg-background rounded-t-3xl shadow-lg px-8 md:px-12 py-10 text-center -mt-4 relative z-10",
+            "mx-auto bg-background rounded-t-3xl shadow-lg px-8 md:px-12 py-10 text-center -mt-4 relative z-10",
             inView ? "animate-in fade-in slide-in-from-bottom-6 duration-700 delay-300" : "opacity-0 translate-y-3",
           ].join(" ")}
         >
