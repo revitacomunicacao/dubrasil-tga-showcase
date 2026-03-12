@@ -108,7 +108,7 @@ const Modules = () => {
                 <img
                   src={module.image}
                   alt={module.title}
-                  className="w-full h-[350px] object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                  className="w-full h-[400px] object-cover object-top group-hover:scale-105 transition-transform duration-500"
                   loading="lazy"
                 />
               </div>

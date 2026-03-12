@@ -76,7 +76,7 @@ const CTA = () => {
             <Button
               size="lg"
               onClick={openWhatsApp}
-              className="bg-accent hover:bg-accent/90 text-accent-foreground text-lg px-10 py-7 group"
+              className="bg-primary hover:bg-primary/90 text-accent-foreground text-lg px-10 py-7 group"
             >
               <MessageCircle className="mr-2" />
               Quero organizar minha gestão

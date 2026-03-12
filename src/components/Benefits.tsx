@@ -57,7 +57,7 @@ const Benefits = () => {
         <div className="text-center mb-16">
           <span
             className={[
-              "text-accent font-semibold text-sm uppercase tracking-wider inline-block",
+              "text-white font-semibold text-sm uppercase tracking-wider inline-block",
               inView
                 ? "animate-in fade-in slide-in-from-top-4 duration-700"
                 : "opacity-0 -translate-y-2",
@@ -90,12 +90,12 @@ const Benefits = () => {
           </p>
         </div>
 
-        <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-6">
+        <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-8">
           {steps.map((step, index) => (
             <div
               key={step.title}
               className={[
-                "rounded-2xl border border-primary-foreground/10 bg-primary-foreground/5 p-6",
+                "rounded-2xl border border-primary-foreground/10 bg-primary-foreground/5 p-6 shadow-[0_0_30px_rgba(59,130,246,0.18)]",
                 inView
                   ? "animate-in fade-in slide-in-from-bottom-6 duration-700"
                   : "opacity-0 translate-y-3",
@@ -103,7 +103,6 @@ const Benefits = () => {
               style={inView ? { animationDelay: `${index * 110}ms` } : undefined}
             >
               <div className="flex items-start gap-3">
-                <CheckCircle2 className="w-5 h-5 text-accent mt-0.5" />
                 <div>
                   <h3 className="text-lg font-semibold">{step.title}</h3>
                   <p className="text-sm text-primary-foreground/70 mt-1">
