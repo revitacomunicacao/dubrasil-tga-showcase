@@ -57,7 +57,7 @@ const VideoCarousel = () => {
     videoRefs.current.forEach((video, index) => {
       if (!video) return
       if (index === currentSlide && isPlaying) {
-        video.play().catch(() => {})
+        video.play().catch(() => { })
       } else {
         video.pause()
       }
@@ -166,9 +166,8 @@ const VideoCarousel = () => {
         return (
           <div
             key={slide.id}
-            className={`absolute inset-0 transition-opacity duration-1000 ${
-              index === currentSlide ? "opacity-100 z-10" : "opacity-0 z-0"
-            }`}
+            className={`absolute inset-0 transition-opacity duration-1000 ${index === currentSlide ? "opacity-100 z-10" : "opacity-0 z-0"
+              }`}
             style={{ width: "100%", maxWidth: "100vw" }}
           >
             {isVideo ? (
@@ -195,36 +194,33 @@ const VideoCarousel = () => {
             <div className="absolute inset-0 bg-primary/70" />
 
             <div className="relative z-30 h-full flex items-center overflow-hidden">
-              <div className="container mx-auto px-4 max-w-full">
+              <div className="container mx-auto px-6 md:px-24 max-w-full">
                 <div className="max-w-3xl pointer-events-auto">
                   <h1
-                    className={`text-3xl md:text-5xl lg:text-7xl font-bold text-primary-foreground mb-4 md:mb-6 transition-all duration-700 ${
-                      index === currentSlide
+                    className={`text-3xl md:text-5xl lg:text-7xl font-bold text-primary-foreground mb-4 md:mb-6 transition-all duration-700 ${index === currentSlide
                         ? "opacity-100 translate-y-0"
                         : "opacity-0 translate-y-10"
-                    }`}
+                      }`}
                     style={{ transitionDelay: "200ms" }}
                   >
                     {slide.title}
                   </h1>
 
                   <p
-                    className={`text-base md:text-2xl text-primary-foreground/80 mb-6 md:mb-10 transition-all duration-700 ${
-                      index === currentSlide
+                    className={`text-base md:text-2xl text-primary-foreground/80 mb-6 md:mb-10 transition-all duration-700 ${index === currentSlide
                         ? "opacity-100 translate-y-0"
                         : "opacity-0 translate-y-10"
-                    }`}
+                      }`}
                     style={{ transitionDelay: "400ms" }}
                   >
                     {slide.subtitle}
                   </p>
 
                   <div
-                    className={`transition-all duration-700 ${
-                      index === currentSlide
+                    className={`transition-all duration-700 ${index === currentSlide
                         ? "opacity-100 translate-y-0"
                         : "opacity-0 translate-y-10"
-                    }`}
+                      }`}
                     style={{ transitionDelay: "600ms" }}
                   >
                     <Button
@@ -245,7 +241,7 @@ const VideoCarousel = () => {
       {/* Arrows (hidden on mobile) */}
       <button
         onClick={prevSlide}
-        className="hidden md:flex absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-40 w-12 h-12 bg-primary-foreground/10 hover:bg-primary-foreground/20 backdrop-blur-sm rounded-full items-center justify-center transition-all group pointer-events-auto"
+        className="hidden md:flex absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-40 w-8 h-8 bg-primary-foreground/10 hover:bg-primary-foreground/20 backdrop-blur-sm rounded-full items-center justify-center transition-all group pointer-events-auto"
         aria-label="Slide anterior"
       >
         <ChevronLeft className="w-6 h-6 text-primary-foreground group-hover:scale-110 transition-transform" />
@@ -253,7 +249,7 @@ const VideoCarousel = () => {
 
       <button
         onClick={nextSlide}
-        className="hidden md:flex absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-40 w-12 h-12 bg-primary-foreground/10 hover:bg-primary-foreground/20 backdrop-blur-sm rounded-full items-center justify-center transition-all group pointer-events-auto"
+        className="hidden md:flex absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-40 w-8 h-8 bg-primary-foreground/10 hover:bg-primary-foreground/20 backdrop-blur-sm rounded-full items-center justify-center transition-all group pointer-events-auto"
         aria-label="Próximo slide"
       >
         <ChevronRight className="w-6 h-6 text-primary-foreground group-hover:scale-110 transition-transform" />
@@ -278,11 +274,10 @@ const VideoCarousel = () => {
             <button
               key={index}
               onClick={() => goToSlide(index)}
-              className={`h-2 rounded-full transition-all duration-300 ${
-                index === currentSlide
+              className={`h-2 rounded-full transition-all duration-300 ${index === currentSlide
                   ? "w-8 bg-accent"
                   : "w-2 bg-primary-foreground/40 hover:bg-primary-foreground/60"
-              }`}
+                }`}
               aria-label={`Ir para slide ${index + 1}`}
             />
           ))}
