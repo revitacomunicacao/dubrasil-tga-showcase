@@ -26,7 +26,7 @@ const Hero = () => {
   const { ref, inView } = useInView<HTMLElement>({ threshold: 0.1, once: true })
 
   return (
-    <section ref={ref} className="pt-8 pb-0 bg-secondary relative overflow-hidden">
+    <section ref={ref} className="pt-8 pb-7 bg-secondary relative overflow-hidden">
       <div className="container mx-auto px-4 relative z-10">
         {/* Devices mockup image */}
         <div
@@ -46,7 +46,7 @@ const Hero = () => {
         {/* Text card overlapping bottom */}
         <div
           className={[
-            "mx-auto bg-background rounded-t-3xl shadow-lg px-8 md:px-12 py-10 text-center -mt-4 relative z-10",
+            "mx-auto bg-background rounded-3xl shadow-lg px-8 md:px-12 py-10 text-center -mt-4 relative z-10",
             inView ? "animate-in fade-in slide-in-from-bottom-6 duration-700 delay-300" : "opacity-0 translate-y-3",
           ].join(" ")}
         >
