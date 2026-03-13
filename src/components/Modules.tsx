@@ -76,7 +76,7 @@ const Modules = () => {
   const { ref, inView } = useInView<HTMLElement>({ threshold: 0.05, once: true })
 
   return (
-    <section ref={ref} id="modulos" className="py-16 bg-secondary">
+    <section ref={ref} id="modulos" className="py-16 bg-[#ededed]">
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12">
           {modules.map((module, index) => (

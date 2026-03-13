@@ -1,6 +1,7 @@
 // src/components/Benefits.tsx
 import React, { useEffect, useRef, useState } from "react"
 import { CheckCircle2 } from "lucide-react"
+import tgaBG from "@/assets/tgaBG.jpeg"
 
 function useInView<T extends HTMLElement>(
   options: IntersectionObserverInit & { once?: boolean } = { threshold: 0.25, once: true }
@@ -52,7 +53,12 @@ const Benefits = () => {
   const { ref, inView } = useInView<HTMLElement>({ threshold: 0.2, once: true })
 
   return (
-    <section ref={ref} id="diferencial" className="py-24 bg-primary text-primary-foreground">
+    <section
+      ref={ref}
+      id="diferencial"
+      className="py-24 text-primary-foreground bg-cover bg-center bg-no-repeat"
+      style={{ backgroundImage: `url(${tgaBG})` }}
+    >
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <span

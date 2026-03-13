@@ -8,6 +8,7 @@ import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import { SolucoesDuBrasil } from "@/components/SolucoesDuBrasil";
+import ContactForm from "@/components/ContactForm";
 
 const Index = () => {
   return (
@@ -20,6 +21,7 @@ const Index = () => {
       <ParaQuemE />
       <Benefits />
       <CTA />
+      <ContactForm />
       <Footer />
       <WhatsAppButton />
     </div>
