@@ -1,7 +1,6 @@
 // src/components/VideoCarousel.tsx
 import { useState, useEffect, useRef } from "react"
 import { ChevronLeft, ChevronRight, Play, Pause } from "lucide-react"
-import { Button } from "@/components/ui/button"
 import banner2 from "@/assets/dubrasil-fullbanner.jpg.jpeg"
 import banner3 from "@/assets/banners tga.png"
 
@@ -77,13 +76,6 @@ const VideoCarousel = () => {
   }, [isPlaying, currentSlide])
 
   const togglePlay = () => setIsPlaying((v) => !v)
-
-  const openWhatsApp = () => {
-    window.open(
-      "https://wa.me/553433228500?text=Olá! Gostaria de saber mais sobre o ERP TGA.",
-      "_blank"
-    )
-  }
 
   const onPointerDown = (clientX: number, clientY: number) => {
     pointerDownX.current = clientX
@@ -216,21 +208,6 @@ const VideoCarousel = () => {
                     {slide.subtitle}
                   </p>
 
-                  <div
-                    className={`transition-all duration-700 ${index === currentSlide
-                        ? "opacity-100 translate-y-0"
-                        : "opacity-0 translate-y-10"
-                      }`}
-                    style={{ transitionDelay: "600ms" }}
-                  >
-                    <Button
-                      size="lg"
-                      onClick={openWhatsApp}
-                      className="bg-accent hover:bg-accent/90 text-accent-foreground text-base md:text-lg px-6 md:px-8 py-5 md:py-6"
-                    >
-                      Saiba mais
-                    </Button>
-                  </div>
                 </div>
               </div>
             </div>
