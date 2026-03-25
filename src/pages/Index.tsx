@@ -4,7 +4,6 @@ import Hero from "@/components/Hero";
 import Modules from "@/components/Modules";
 import ParaQuemE from "@/components/ParaQuemE";
 import Benefits from "@/components/Benefits";
-import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import { SolucoesDuBrasil } from "@/components/SolucoesDuBrasil";
@@ -12,7 +11,7 @@ import ContactForm from "@/components/ContactForm";
 
 const Index = () => {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen overflow-x-hidden">
       <Header />
       <VideoCarousel />
       <Hero />
@@ -20,7 +19,6 @@ const Index = () => {
       <SolucoesDuBrasil />
       <ParaQuemE />
       <Benefits />
-      <CTA />
       <ContactForm />
       <Footer />
       <WhatsAppButton />

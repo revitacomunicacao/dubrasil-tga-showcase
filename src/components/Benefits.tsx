@@ -61,17 +61,6 @@ const Benefits = () => {
     >
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <span
-            className={[
-              "text-white font-semibold text-sm uppercase tracking-wider inline-block",
-              inView
-                ? "animate-in fade-in slide-in-from-top-4 duration-700"
-                : "opacity-0 -translate-y-2",
-            ].join(" ")}
-          >
-            Diferencial DuBrasil
-          </span>
-
           <h2
             className={[
               "text-3xl md:text-4xl font-bold mt-2 mb-4",

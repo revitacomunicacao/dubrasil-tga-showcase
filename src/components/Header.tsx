@@ -27,16 +27,10 @@ const Header = () => {
         {/* Desktop Navigation */}{" "}
         <nav className="hidden md:flex items-center gap-8">
           <button
-            onClick={() => scrollToSection("o-que-resolve")}
-            className="text-primary-foreground/90 hover:text-primary-foreground transition-colors font-medium"
-          >
-            O que resolve
-          </button>
-          <button
             onClick={() => scrollToSection("modulos")}
             className="text-primary-foreground/90 hover:text-primary-foreground transition-colors font-medium"
           >
-            Módulos
+            Soluções
           </button>
           <button
             onClick={() => scrollToSection("para-quem-e")}
@@ -54,7 +48,7 @@ const Header = () => {
             onClick={() => scrollToSection("contato")}
             className="bg-accent hover:bg-accent/90 text-accent-foreground"
           >
-            WhatsApp
+            Transforme o seu negócio
           </Button>
         </nav>
         {/* Mobile Menu Button */}{" "}
@@ -72,16 +66,10 @@ const Header = () => {
           {" "}
           <div className="container mx-auto px-4 flex flex-col gap-4">
             <button
-              onClick={() => scrollToSection("o-que-resolve")}
-              className="text-primary-foreground/90 hover:text-primary-foreground transition-colors font-medium"
-            >
-              O que resolve
-            </button>
-            <button
               onClick={() => scrollToSection("modulos")}
               className="text-primary-foreground/90 hover:text-primary-foreground transition-colors font-medium"
             >
-              Módulos
+              Soluções
             </button>
             <button
               onClick={() => scrollToSection("para-quem-e")}
@@ -99,7 +87,7 @@ const Header = () => {
               onClick={() => scrollToSection("contato")}
               className="bg-accent hover:bg-accent/90 text-accent-foreground w-full"
             >
-              WhatsApp
+              Transforme o seu negócio
             </Button>
           </div>{" "}
         </nav>
