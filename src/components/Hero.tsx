@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react"
-import newMockups from "@/assets/new-mockups.png"
+import newMockups from "@/assets/TGA - Menos planilha.jpeg"
 
 function useInView<T extends HTMLElement>(
   options: IntersectionObserverInit & { once?: boolean } = { threshold: 0.2, once: true }
@@ -38,7 +38,7 @@ const Hero = () => {
           <img
             src={newMockups}
             alt="ERP DuBrasil em múltiplos dispositivos - desktop, notebook e smartphone"
-            className="w-full h-auto"
+            className="pt-6 w-full h-auto"
             loading="lazy"
           />
         </div>

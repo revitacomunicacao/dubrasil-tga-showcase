@@ -1,10 +1,10 @@
 import React, { useEffect, useRef, useState } from "react"
-import moduleEstoque from "@/assets/module-estoque.jpg"
-import moduleFinanceiro from "@/assets/module-financeiro.jpg"
-import moduleFiscal from "@/assets/module-fiscal.jpg"
-import modulePdv from "@/assets/module-pdv.jpg"
-import moduleMobilidade from "@/assets/module-mobilidade.jpg"
-import moduleBi from "@/assets/module-bi.jpg"
+import moduleEstoque from "@/assets/Estoque e Compras.jpg.jpeg"
+import moduleFinanceiro from "@/assets/Financeiro.jpg.jpeg"
+import moduleFiscal from "@/assets/Fiscal e Emissao de Notas.jpg.jpeg"
+import modulePdv from "@/assets/PDV e Frente de Caixa.jpg.jpeg"
+import moduleMobilidade from "@/assets/Mobilidade.jpeg"
+import moduleBi from "@/assets/BI e Indicadores.jpg.jpeg"
 
 function useInView<T extends HTMLElement>(
   options: IntersectionObserverInit & { once?: boolean } = { threshold: 0.1, once: true }
