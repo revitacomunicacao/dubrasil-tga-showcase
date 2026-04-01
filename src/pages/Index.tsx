@@ -8,6 +8,7 @@ import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import { SolucoesDuBrasil } from "@/components/SolucoesDuBrasil";
 import ContactForm from "@/components/ContactForm";
+import FAQ from "@/components/FAQ";
 
 const Index = () => {
   return (
@@ -19,6 +20,7 @@ const Index = () => {
       <SolucoesDuBrasil />
       <ParaQuemE />
       <Benefits />
+      <FAQ />
       <ContactForm />
       <Footer />
       <WhatsAppButton />
