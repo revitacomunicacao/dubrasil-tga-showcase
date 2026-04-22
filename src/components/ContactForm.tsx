@@ -6,8 +6,8 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
-import { Send, MessageCircle, Mail, Phone, MapPin } from "lucide-react";
-import nexaBG from "@/assets/nexabg.jpeg"
+import { Send } from "lucide-react";
+import nexaBG from "@/assets/nexabg.jpeg";
 
 const WHATSAPP_NUMBER = "5534996367430";
 
@@ -62,155 +62,111 @@ const ContactForm = () => {
   return (
     <section
       id="contato"
-      className="relative py-24 bg-cover bg-center overflow-hidden"
-      style={{ backgroundImage: `url(${nexaBG})` }}
+      className="relative flex min-h-[850px] flex-col overflow-hidden py-24 max-md:py-16"
     >
-      <div className="absolute inset-0 bg-black/40" />
-      <div className="absolute inset-0 bg-gradient-to-br from-black/25 via-transparent to-white/10" />
-      <div className="absolute -top-24 -left-24 w-96 h-96 bg-white/10 rounded-full blur-3xl" />
-      <div className="absolute -bottom-24 -right-24 w-[28rem] h-[28rem] bg-black/20 rounded-full blur-3xl" />
+      <div
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: `url(${nexaBG})` }}
+      />
+      <div className="absolute inset-0 bg-black/55" />
 
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="max-w-5xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* Left Content */}
-            <div>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mt-4 mb-6 text-white">
-                Pronto para <span className="text-[#002047]">transformar</span> seu atendimento?
-              </h2>
-              <p className="text-lg text-white/80 mb-8">
-                Preencha o formulário e nossa equipe entrará em contato para mostrar como o DuBrasil Nexa pode ajudar seu negócio.
-              </p>
-
-              {/* Contact Info */}
-              <div className="space-y-4">
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center">
-                    <MessageCircle className="w-6 h-6 text-white" />
-                  </div>
-                  <div>
-                    <p className="font-medium text-white">WhatsApp</p>
-                    <p className="text-white/70">(34) 99636-7430</p>
-                  </div>
-                </div>
-
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center">
-                    <Mail className="w-6 h-6 text-white" />
-                  </div>
-                  <div>
-                    <p className="font-medium text-white">Email</p>
-                    <p className="text-white/70">contato@dubrasilnexa.com.br</p>
-                  </div>
-                </div>
-
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center">
-                    <Phone className="w-6 h-6 text-white" />
-                  </div>
-                  <div>
-                    <p className="font-medium text-white">Telefone</p>
-                    <p className="text-white/70">(34) 99636-7430</p>
-                  </div>
-                </div>
-
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center">
-                    <MapPin className="w-6 h-6 text-white" />
-                  </div>
-                  <div>
-                    <p className="font-medium text-white">Endereço</p>
-                    <p className="text-white/70">
-                      Av. Leopoldino de Oliveira, 4252 - Fabrício
-                      <br />
-                      Uberaba - MG, 38065-165
-                    </p>
-                  </div>
-                </div>
+      <div className="relative z-10 flex w-full flex-1 flex-col justify-center">
+        <div className="container mx-auto px-4">
+          <div className="grid items-center gap-10 lg:grid-cols-12 lg:gap-12">
+            {/* Textos */}
+            <div className="lg:col-span-6 flex flex-col items-center justify-center lg:items-start">
+              <div className="w-full max-w-2xl text-left">
+                <h2 className="mt-2 text-4xl leading-[1.05] tracking-tight text-white max-md:text-balance md:text-5xl lg:text-6xl">
+                  <span className="font-light">Pronto para </span>
+                  <span className="font-extrabold text-primary">transformar</span>
+                  <span className="font-light">
+                    {" "}
+                    <br /> seu negócio?
+                  </span>
+                </h2>
+                <h3 className="mt-20 text-4xl leading-[1.05] tracking-tight text-white max-md:text-balance md:text-5xl lg:text-6xl">
+                  <span className="block font-light">Vamos</span>
+                  <span className="block font-extrabold">construir</span>
+                  <span className="block font-light">essa história?</span>
+                </h3>
               </div>
             </div>
 
-            {/* Right Content - Form */}
-            <div className="bg-card rounded-2xl p-6 md:p-8 border border-border shadow-card">
-              <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-                <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
-                    Nome completo
-                  </label>
-                  <Input
-                    id="name"
-                    placeholder="Seu nome"
-                    {...register("name")}
-                    className={errors.name ? "border-destructive" : ""}
-                  />
-                  {errors.name && (
-                    <p className="text-destructive text-sm mt-1">{errors.name.message}</p>
-                  )}
-                </div>
+            {/* Formulário */}
+            <div className="lg:col-span-6">
+              <div className="rounded-2xl border border-white/15 bg-white/5 backdrop-blur-sm p-6 shadow-card max-md:p-5 md:p-8">
+                <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+                  <div>
+                    <label htmlFor="name" className="mb-2 block text-sm font-medium text-white">
+                      Nome completo
+                    </label>
+                    <Input
+                      id="name"
+                      placeholder="Seu nome"
+                      {...register("name")}
+                      className={`bg-white/10 border-white/20 text-white placeholder:text-white/40 ${errors.name ? "border-destructive" : ""}`}
+                    />
+                    {errors.name && <p className="mt-1 text-sm text-destructive">{errors.name.message}</p>}
+                  </div>
 
-                <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
-                    Email
-                  </label>
-                  <Input
-                    id="email"
-                    type="email"
-                    placeholder="seu@email.com"
-                    {...register("email")}
-                    className={errors.email ? "border-destructive" : ""}
-                  />
-                  {errors.email && (
-                    <p className="text-destructive text-sm mt-1">{errors.email.message}</p>
-                  )}
-                </div>
+                  <div>
+                    <label htmlFor="email" className="mb-2 block text-sm font-medium text-white">
+                      Email
+                    </label>
+                    <Input
+                      id="email"
+                      type="email"
+                      placeholder="seu@email.com"
+                      {...register("email")}
+                      className={`bg-white/10 border-white/20 text-white placeholder:text-white/40 ${errors.email ? "border-destructive" : ""}`}
+                    />
+                    {errors.email && <p className="mt-1 text-sm text-destructive">{errors.email.message}</p>}
+                  </div>
 
-                <div>
-                  <label htmlFor="phone" className="block text-sm font-medium text-foreground mb-2">
-                    WhatsApp
-                  </label>
-                  <Input
-                    id="phone"
-                    placeholder="(11) 99999-9999"
-                    {...register("phone")}
-                    className={errors.phone ? "border-destructive" : ""}
-                  />
-                  {errors.phone && (
-                    <p className="text-destructive text-sm mt-1">{errors.phone.message}</p>
-                  )}
-                </div>
+                  <div>
+                    <label htmlFor="phone" className="mb-2 block text-sm font-medium text-white">
+                      WhatsApp
+                    </label>
+                    <Input
+                      id="phone"
+                      placeholder="(11) 99999-9999"
+                      {...register("phone")}
+                      className={`bg-white/10 border-white/20 text-white placeholder:text-white/40 ${errors.phone ? "border-destructive" : ""}`}
+                    />
+                    {errors.phone && <p className="mt-1 text-sm text-destructive">{errors.phone.message}</p>}
+                  </div>
 
-                <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
-                    Mensagem
-                  </label>
-                  <Textarea
-                    id="message"
-                    placeholder="Conte-nos sobre seu negócio e como podemos ajudar..."
-                    rows={4}
-                    {...register("message")}
-                    className={errors.message ? "border-destructive" : ""}
-                  />
-                  {errors.message && (
-                    <p className="text-destructive text-sm mt-1">{errors.message.message}</p>
-                  )}
-                </div>
+                  <div>
+                    <label htmlFor="message" className="mb-2 block text-sm font-medium text-white">
+                      Mensagem
+                    </label>
+                    <Textarea
+                      id="message"
+                      placeholder="Conte-nos sobre seu negócio e como podemos ajudar..."
+                      rows={4}
+                      {...register("message")}
+                      className={`bg-white/10 border-white/20 text-white placeholder:text-white/40 ${errors.message ? "border-destructive" : ""}`}
+                    />
+                    {errors.message && <p className="mt-1 text-sm text-destructive">{errors.message.message}</p>}
+                  </div>
 
-                <Button
-                  type="submit"
-                  size="lg"
-                  className="w-full gradient-primary shadow-glow"
-                  disabled={isSubmitting}
-                >
-                  {isSubmitting ? (
-                    "Enviando..."
-                  ) : (
-                    <>
-                      Enviar Mensagem
-                      <Send className="ml-2 w-5 h-5" />
-                    </>
-                  )}
-                </Button>
-              </form>
+                  <Button
+                    type="submit"
+                    size="lg"
+                    className="w-full min-h-12 font-semibold max-md:text-base"
+                    disabled={isSubmitting}
+                  >
+                    {isSubmitting ? (
+                      "Enviando..."
+                    ) : (
+                      <>
+                        Enviar Mensagem
+                        <Send className="ml-2 h-5 w-5" />
+                      </>
+                    )}
+                  </Button>
+                </form>
+              </div>
             </div>
           </div>
         </div>

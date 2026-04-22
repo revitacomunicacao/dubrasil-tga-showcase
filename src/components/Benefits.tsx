@@ -56,25 +56,27 @@ const Benefits = () => {
     <section
       ref={ref}
       id="diferencial"
-      className="py-24 text-primary-foreground bg-cover bg-center bg-no-repeat"
+      className="relative overflow-hidden section-pad text-primary-foreground bg-cover bg-center bg-no-repeat"
       style={{ backgroundImage: `url(${tgaBG})` }}
     >
+      <div className="absolute inset-0 bg-brand-surface/50" />
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
+        <div className="relative text-center mb-16">
           <h2
             className={[
-              "text-3xl md:text-4xl font-bold mt-2 mb-4",
+              "text-3xl md:text-4xl mt-2 mb-4 drop-shadow-[0_2px_12px_rgba(0,0,0,0.35)]",
               inView
                 ? "animate-in fade-in slide-in-from-bottom-5 duration-700 delay-150"
                 : "opacity-0 translate-y-3",
             ].join(" ")}
           >
-            ERP funciona quando é bem implantado
+            <span className="font-light">ERP funciona quando é </span>
+            <span className="font-extrabold text-white">bem implantado</span>
           </h2>
 
           <p
             className={[
-              "text-primary-foreground/70 max-w-2xl mx-auto",
+              "text-brand-support max-w-2xl mx-auto leading-relaxed",
               inView
                 ? "animate-in fade-in slide-in-from-bottom-5 duration-700 delay-300"
                 : "opacity-0 translate-y-3",
@@ -85,12 +87,12 @@ const Benefits = () => {
           </p>
         </div>
 
-        <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-8">
+        <div className="relative max-w-4xl mx-auto grid md:grid-cols-2 gap-8">
           {steps.map((step, index) => (
             <div
               key={step.title}
               className={[
-                "rounded-2xl border border-primary-foreground/10 bg-primary-foreground/5 p-6 shadow-[0_0_30px_rgba(59,130,246,0.18)]",
+                "card-dark card-dark-hover p-5 md:p-6",
                 inView
                   ? "animate-in fade-in slide-in-from-bottom-6 duration-700"
                   : "opacity-0 translate-y-3",
@@ -100,7 +102,7 @@ const Benefits = () => {
               <div className="flex items-start gap-3">
                 <div>
                   <h3 className="text-lg font-semibold">{step.title}</h3>
-                  <p className="text-sm text-primary-foreground/70 mt-1">
+                  <p className="text-sm text-brand-support mt-1 leading-relaxed">
                     {step.description}
                   </p>
                 </div>

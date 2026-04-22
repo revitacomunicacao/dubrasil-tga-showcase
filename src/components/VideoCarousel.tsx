@@ -37,6 +37,36 @@ const slides: VideoSlide[] = [
   },
 ]
 
+const renderSlideTitle = (title: string) => {
+  if (title === "Controle Total do Seu Negócio") {
+    return (
+      <>
+        <span className="font-light">Controle </span>
+        <span className="font-extrabold text-accent">Total</span>
+        <span className="font-light"> do seu negócio</span>
+      </>
+    )
+  }
+  if (title === "Decisões Baseadas em Dados") {
+    return (
+      <>
+        <span className="font-light">Decisões </span>
+        <span className="font-extrabold text-accent">Baseadas</span>
+        <span className="font-light"> em dados</span>
+      </>
+    )
+  }
+  if (title === "Automatize Seus Processos") {
+    return (
+      <>
+        <span className="font-extrabold text-accent">Automatize</span>
+        <span className="font-light"> seus processos</span>
+      </>
+    )
+  }
+  return <span className="font-extrabold">{title}</span>
+}
+
 const VideoCarousel = () => {
   const [currentSlide, setCurrentSlide] = useState(0)
   const [isPlaying, setIsPlaying] = useState(true)
@@ -189,13 +219,13 @@ const VideoCarousel = () => {
               <div className="container mx-auto px-6 md:px-24 max-w-full">
                 <div className="max-w-3xl pointer-events-auto">
                   <h1
-                    className={`text-3xl md:text-5xl lg:text-7xl font-bold text-primary-foreground mb-4 md:mb-6 transition-all duration-700 ${index === currentSlide
+                    className={`text-3xl md:text-5xl lg:text-7xl text-primary-foreground mb-4 md:mb-6 transition-all duration-700 ${index === currentSlide
                         ? "opacity-100 translate-y-0"
                         : "opacity-0 translate-y-10"
                       }`}
                     style={{ transitionDelay: "200ms" }}
                   >
-                    {slide.title}
+                    {renderSlideTitle(slide.title)}
                   </h1>
 
                   <p

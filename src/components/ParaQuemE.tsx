@@ -107,11 +107,13 @@ export default function ParaQuemE() {
         <div className="max-w-5xl mx-auto">
           <h2
             className={[
-              "text-2xl md:text-3xl font-bold text-foreground mb-10 text-center",
+              "text-2xl md:text-3xl text-foreground mb-10 text-center",
               inView ? "animate-in fade-in slide-in-from-bottom-6 duration-700" : "opacity-0 translate-y-3",
             ].join(" ")}
           >
-            Ideal para empresas que precisam de controle e rotina
+            <span className="font-light">Ideal para empresas que precisam de </span>
+            <span className="font-extrabold text-primary">controle</span>
+            <span className="font-light"> e rotina</span>
           </h2>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">

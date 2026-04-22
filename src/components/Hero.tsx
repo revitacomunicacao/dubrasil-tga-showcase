@@ -50,8 +50,9 @@ const Hero = () => {
             inView ? "animate-in fade-in slide-in-from-bottom-6 duration-700 delay-300" : "opacity-0 translate-y-3",
           ].join(" ")}
         >
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-4 leading-tight">
-            Menos planilha. Menos retrabalho. Mais controle.
+          <h2 className="text-2xl md:text-3xl lg:text-4xl text-foreground mb-4 leading-tight">
+            <span className="font-light">Menos planilha. Menos retrabalho. </span>
+            <span className="font-extrabold text-primary">Mais controle.</span>
           </h2>
           <p className="text-muted-foreground text-sm md:text-base leading-relaxed max-w-2xl mx-auto">
             O ERP é para empresas que querem parar de "apagar incêndio" e passar a ter rotina: compras,
