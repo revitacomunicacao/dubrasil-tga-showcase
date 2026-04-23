@@ -58,7 +58,7 @@ const DevicesShowcase = () => {
         <div className="text-center mb-12">
           <span
             className={[
-              "text-accent font-semibold text-sm uppercase tracking-wider inline-block",
+              "text-accent font-semibold text-[20px] uppercase tracking-wider inline-block",
               inView
                 ? "animate-in fade-in slide-in-from-top-4 duration-700"
                 : "opacity-0 -translate-y-2",
@@ -112,7 +112,7 @@ const DevicesShowcase = () => {
                 <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
                   <Icon className="w-5 h-5 text-primary" />
                 </div>
-                <span className="font-medium text-sm whitespace-nowrap">
+                <span className="font-medium text-[20px] whitespace-nowrap">
                   {feature.label}
                 </span>
               </div>
@@ -153,7 +153,7 @@ const DevicesShowcase = () => {
                 style={inView ? { animationDelay: `${index * 90}ms` } : undefined}
               >
                 <Icon className="w-4 h-4 text-accent" />
-                <span className="text-primary-foreground/90 text-sm">
+                <span className="text-primary-foreground/90 text-[20px]">
                   {feature.label}
                 </span>
               </div>

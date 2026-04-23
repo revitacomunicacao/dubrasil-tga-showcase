@@ -113,7 +113,7 @@ export function Planos() {
             ].join(" ")}
           >
             <Sparkles className="h-5 w-5 text-primary" />
-            <p className="text-sm font-medium text-muted-foreground">
+            <p className="text-[20px] font-medium text-muted-foreground">
               Planos de contratação
             </p>
           </div>
@@ -131,7 +131,7 @@ export function Planos() {
 
           <p
             className={[
-              "max-w-2xl text-base leading-relaxed text-muted-foreground",
+              "max-w-2xl text-[20px] leading-relaxed text-muted-foreground",
               inView
                 ? "animate-in fade-in slide-in-from-bottom-5 duration-700 delay-300"
                 : "opacity-0 translate-y-3",
@@ -170,7 +170,7 @@ export function Planos() {
                       {plan.name}
                     </CardTitle>
                     <p
-                      className={`mt-1 text-sm text-muted-foreground ${SUBTITLE_MIN_H}`}
+                      className={`mt-1 text-[20px] text-muted-foreground ${SUBTITLE_MIN_H}`}
                     >
                       {plan.subtitle}
                     </p>
@@ -205,7 +205,7 @@ export function Planos() {
                     {plan.features.map((f) => (
                       <li key={f} className="flex items-start gap-2">
                         <Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
-                        <span className="text-sm leading-relaxed text-muted-foreground">
+                        <span className="text-[20px] leading-relaxed text-muted-foreground">
                           {f}
                         </span>
                       </li>
@@ -221,7 +221,7 @@ export function Planos() {
                     Falar no WhatsApp
                   </Button>
 
-                  <p className="text-xs text-muted-foreground">
+                  <p className="text-[20px] text-muted-foreground">
                     Ajustamos o plano conforme número de usuários, módulos e
                     integrações.
                   </p>

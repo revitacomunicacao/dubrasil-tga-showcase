@@ -98,7 +98,7 @@ const Features = () => {
         <div className="text-center mb-16">
           <span
             className={[
-              "text-accent font-semibold text-sm uppercase tracking-wider inline-block",
+              "text-accent font-semibold text-[20px] uppercase tracking-wider inline-block",
               inView
                 ? "animate-in fade-in slide-in-from-top-4 duration-700"
                 : "opacity-0 -translate-y-2",
@@ -157,11 +157,11 @@ const Features = () => {
                   <Icon className="w-6 h-6 text-primary group-hover:text-accent transition-colors" />
                 </div>
 
-                <h3 className="text-lg font-semibold text-foreground mb-2">
+                <h3 className="text-[20px] font-semibold text-foreground mb-2">
                   {feature.title}
                 </h3>
 
-                <p className="text-muted-foreground text-sm">
+                <p className="text-muted-foreground text-[20px]">
                   {feature.description}
                 </p>
               </div>

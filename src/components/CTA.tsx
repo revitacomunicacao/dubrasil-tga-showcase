@@ -56,7 +56,7 @@ const CTA = () => {
 
           <p
             className={[
-              "text-muted-foreground text-lg mb-10 max-w-2xl mx-auto",
+              "text-muted-foreground text-[20px] mb-10 max-w-2xl mx-auto",
               inView
                 ? "animate-in fade-in slide-in-from-bottom-6 duration-700 delay-150"
                 : "opacity-0 translate-y-3",
@@ -76,7 +76,7 @@ const CTA = () => {
             <Button
               size="lg"
               onClick={openWhatsApp}
-              className="bg-primary hover:bg-primary/90 text-accent-foreground text-lg px-10 py-7 group"
+              className="bg-primary hover:bg-primary/90 text-accent-foreground text-[20px] px-10 py-7 group"
             >
               <MessageCircle className="mr-2" />
               Quero organizar minha gestão
@@ -86,7 +86,7 @@ const CTA = () => {
 
           <p
             className={[
-              "mt-6 text-muted-foreground text-sm",
+              "mt-6 text-muted-foreground text-[20px]",
               inView
                 ? "animate-in fade-in slide-in-from-bottom-4 duration-700 delay-450"
                 : "opacity-0 translate-y-2",

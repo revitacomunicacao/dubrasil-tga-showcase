@@ -92,13 +92,13 @@ const Modules = () => {
             >
               {/* Text on top */}
               <div className="p-5 pb-2">
-                <h3 className="text-3xl font-bold text-foreground mb-1 py-4 h-[100px]">
+                <h3 className="text-3xl font-bold text-[#2b8efa] mb-1 py-4 h-[100px] flex items-center overflow-hidden">
                   {module.title}
                 </h3>
-                <p className="text-base font-semibold text-primary mb-1">
+                <p className="text-[20px] font-semibold text-primary mb-0.5 h-[64px] overflow-hidden [-webkit-line-clamp:2] [-webkit-box-orient:vertical] [display:-webkit-box]">
                   {module.subtitle}
                 </p>
-                <p className="text-sm text-muted-foreground leading-relaxed">
+                <p className="text-[20px] text-muted-foreground leading-relaxed h-[140px] overflow-hidden [-webkit-line-clamp:4] [-webkit-box-orient:vertical] [display:-webkit-box]">
                   {module.description}
                 </p>
               </div>

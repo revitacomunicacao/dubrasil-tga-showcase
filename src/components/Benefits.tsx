@@ -59,24 +59,24 @@ const Benefits = () => {
       className="relative overflow-hidden section-pad text-primary-foreground bg-cover bg-center bg-no-repeat"
       style={{ backgroundImage: `url(${tgaBG})` }}
     >
-      <div className="absolute inset-0 bg-brand-surface/50" />
+      <div className="absolute inset-0" />
       <div className="container mx-auto px-4">
         <div className="relative text-center mb-16">
           <h2
             className={[
-              "text-3xl md:text-4xl mt-2 mb-4 drop-shadow-[0_2px_12px_rgba(0,0,0,0.35)]",
+              "mt-2 mb-4 text-4xl leading-[1.05] tracking-tight max-md:text-balance md:text-5xl lg:text-6xl drop-shadow-[0_2px_12px_rgba(0,0,0,0.35)]",
               inView
                 ? "animate-in fade-in slide-in-from-bottom-5 duration-700 delay-150"
                 : "opacity-0 translate-y-3",
             ].join(" ")}
           >
             <span className="font-light">ERP funciona quando é </span>
-            <span className="font-extrabold text-white">bem implantado</span>
+            <span className="font-extrabold text-[#2b8efa]">bem implantado</span>
           </h2>
 
           <p
             className={[
-              "text-brand-support max-w-2xl mx-auto leading-relaxed",
+              "text-[20px] max-w-3xl mx-auto leading-relaxed",
               inView
                 ? "animate-in fade-in slide-in-from-bottom-5 duration-700 delay-300"
                 : "opacity-0 translate-y-3",
@@ -92,7 +92,8 @@ const Benefits = () => {
             <div
               key={step.title}
               className={[
-                "card-dark card-dark-hover p-5 md:p-6",
+                "rounded-2xl border border-[#2b8efa]/20 bg-[#2b8efa]/30 backdrop-blur-sm transition-colors hover:bg-[#2b8efa]/15 hover:border-[#2b8efa]/30 p-5 md:p-6",
+                index >= 2 ? "md:translate-x-10" : "",
                 inView
                   ? "animate-in fade-in slide-in-from-bottom-6 duration-700"
                   : "opacity-0 translate-y-3",
@@ -101,8 +102,8 @@ const Benefits = () => {
             >
               <div className="flex items-start gap-3">
                 <div>
-                  <h3 className="text-lg font-semibold">{step.title}</h3>
-                  <p className="text-sm text-brand-support mt-1 leading-relaxed">
+                  <h3 className="text-[20px] font-semibold">{step.title}</h3>
+                  <p className="text-[20px] text-brand-support mt-1 leading-relaxed">
                     {step.description}
                   </p>
                 </div>

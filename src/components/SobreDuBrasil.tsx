@@ -54,7 +54,7 @@ export function SobreDuBrasil() {
             <div className="text-white">
               <p
                 className={[
-                  "text-sm font-medium text-white/70",
+                  "text-[20px] font-medium text-white/70",
                   inView
                     ? "animate-in fade-in slide-in-from-top-3 duration-700"
                     : "opacity-0 -translate-y-2",
@@ -76,7 +76,7 @@ export function SobreDuBrasil() {
 
               <p
                 className={[
-                  "mt-5 text-base leading-relaxed text-white/80",
+                  "mt-5 text-[20px] leading-relaxed text-white/80",
                   inView
                     ? "animate-in fade-in slide-in-from-bottom-5 duration-700 delay-300"
                     : "opacity-0 translate-y-3",
@@ -88,7 +88,7 @@ export function SobreDuBrasil() {
 
               <p
                 className={[
-                  "mt-4 text-base leading-relaxed text-white/80",
+                  "mt-4 text-[20px] leading-relaxed text-white/80",
                   inView
                     ? "animate-in fade-in slide-in-from-bottom-5 duration-700 delay-450"
                     : "opacity-0 translate-y-3",

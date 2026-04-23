@@ -1,11 +1,8 @@
 import React, { useEffect, useRef, useState } from "react"
 import {
-  BarChart3,
   BriefcaseBusiness,
   Layers,
-  LayoutGrid,
   ShoppingCart,
-  Smartphone,
   Store,
 } from "lucide-react"
 import backgroundRotinas from "@/assets/background bloco rotinas.jpeg"
@@ -38,33 +35,6 @@ const items = [
   { label: "Operações que precisam integrar financeiro + estoque + emissão", Icon: Layers },
 ] as const
 
-const SOLUTIONS = [
-  {
-    title: "Sistema de Gestão (ERP)",
-    description:
-      "Conheça nossa solução ERP para controle das atividades operacionais e estratégicas. Integre as áreas da empresa em uma base robusta e segura, com visão completa e decisões mais confiáveis.",
-    icon: LayoutGrid,
-  },
-  {
-    title: "Frente de Caixa (PDV)",
-    description:
-      "Realize e monitore vendas de forma rápida e prática. Gerencie promoções, descontos, condições de pagamento e emissão de documentos fiscais (NFC-e) no ponto de venda, com suporte a off-line e contingência.",
-    icon: Store,
-  },
-  {
-    title: "Venda Móvel (App)",
-    description:
-      "Ferramenta multiplataforma para celular e tablet, ideal para agilizar o atendimento. Navegação intuitiva com acesso a funções essenciais, pesquisa de produtos e consulta de preço e estoque com facilidade.",
-    icon: Smartphone,
-  },
-  {
-    title: "Inteligência de Negócios (BI)",
-    description:
-      "Business Intelligence para apoiar decisões estratégicas com agilidade. Monte relatórios dinâmicos, selecione dimensões, crie visões e análises exploratórias para enxergar oportunidades com clareza.",
-    icon: BarChart3,
-  },
-]
-
 export default function ParaQuemE() {
   const { ref, inView } = useInView<HTMLElement>({ threshold: 0.2, once: true })
 
@@ -72,64 +42,35 @@ export default function ParaQuemE() {
     <section
       ref={ref}
       id="para-quem-e"
-      className="py-16 bg-cover bg-center bg-no-repeat"
+      className="relative flex min-h-[850px] items-center bg-cover bg-center bg-no-repeat"
       style={{ backgroundImage: `url(${backgroundRotinas})` }}
     >
-      <div className="py-12 bg-transparent">
-        <div className="w-full px-20">
-          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {SOLUTIONS.map((s, idx) => {
-              return (
-                <div
-                  key={s.title}
-                  className={[
-                    "bg-card rounded-2xl overflow-hidden p-6 flex flex-col gap-3 hover:shadow-xl transition-all duration-300",
-                    inView
-                      ? "animate-in fade-in slide-in-from-bottom-6 duration-700"
-                      : "opacity-0 translate-y-3",
-                  ].join(" ")}
-                  style={inView ? { animationDelay: `${idx * 120}ms` } : undefined}
-                >
-                  <h3 className="text-2xl font-bold text-foreground leading-tight bg-[#E5E8EC] -mx-6 -mt-6 px-6 rounded-t-2xl h-[96px] flex items-center overflow-hidden">
-                    {s.title}
-                  </h3>
-                  <p className="text-sm leading-relaxed text-muted-foreground flex-1">
-                    {s.description}
-                  </p>
-                </div>
-              )
-            })}
-          </div>
-        </div>
-      </div>
-
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 w-full">
         <div className="max-w-5xl mx-auto">
           <h2
             className={[
-              "text-2xl md:text-3xl text-foreground mb-10 text-center",
+              "whitespace-pre-line font-display text-4xl font-extrabold leading-[1.08] tracking-tight max-md:text-balance md:text-6xl lg:text-8xl text-brand-support text-center drop-shadow-[0_2px_12px_rgba(0,0,0,0.35)]",
               inView ? "animate-in fade-in slide-in-from-bottom-6 duration-700" : "opacity-0 translate-y-3",
             ].join(" ")}
           >
-            <span className="font-light">Ideal para empresas que precisam de </span>
-            <span className="font-extrabold text-primary">controle</span>
-            <span className="font-light"> e rotina</span>
+            <span className="font-light text-[#08284f]">Ideal para empresas <br />que precisam de </span>
+            <br /><span className="font-extrabold text-[#2b8efa]">controle e rotina</span>
           </h2>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div className="mt-10 grid grid-cols-2 md:grid-cols-4 gap-6">
             {items.map(({ label, Icon }, idx) => (
               <div
                 key={label}
                 className={[
-                  "bg-card rounded-2xl p-5 flex flex-col items-center text-center gap-4",
+                  "bg-[#2b8efa]/80 rounded-2xl p-5 flex flex-col items-center text-center gap-4",
                   inView ? "animate-in fade-in slide-in-from-bottom-6 duration-700" : "opacity-0 translate-y-3",
                 ].join(" ")}
                 style={inView ? { animationDelay: `${idx * 90}ms` } : undefined}
               >
-                <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center">
-                  <Icon className="h-7 w-7 text-primary" aria-hidden="true" />
+                <div className="w-14 h-14 rounded-xl bg-[#08284f] flex items-center justify-center">
+                  <Icon className="h-7 w-7 text-white" aria-hidden="true" />
                 </div>
-                <span className="text-sm font-medium text-foreground leading-snug">{label}</span>
+                <span className="text-[20px] font-medium text-white leading-snug">{label}</span>
               </div>
             ))}
           </div>

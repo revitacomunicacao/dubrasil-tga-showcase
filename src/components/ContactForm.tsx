@@ -78,7 +78,7 @@ const ContactForm = () => {
               <div className="w-full max-w-2xl text-left">
                 <h2 className="mt-2 text-4xl leading-[1.05] tracking-tight text-white max-md:text-balance md:text-5xl lg:text-6xl">
                   <span className="font-light">Pronto para </span>
-                  <span className="font-extrabold text-primary">transformar</span>
+                  <span className="font-extrabold text-[#2b8efa]"><br />transformar</span>
                   <span className="font-light">
                     {" "}
                     <br /> seu negócio?
@@ -86,7 +86,7 @@ const ContactForm = () => {
                 </h2>
                 <h3 className="mt-20 text-4xl leading-[1.05] tracking-tight text-white max-md:text-balance md:text-5xl lg:text-6xl">
                   <span className="block font-light">Vamos</span>
-                  <span className="block font-extrabold">construir</span>
+                  <span className="block font-extrabold text-[#2b8efa]">construir</span>
                   <span className="block font-light">essa história?</span>
                 </h3>
               </div>
@@ -97,7 +97,7 @@ const ContactForm = () => {
               <div className="rounded-2xl border border-white/15 bg-white/5 backdrop-blur-sm p-6 shadow-card max-md:p-5 md:p-8">
                 <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
                   <div>
-                    <label htmlFor="name" className="mb-2 block text-sm font-medium text-white">
+                    <label htmlFor="name" className="mb-2 block text-[20px] font-medium text-white">
                       Nome completo
                     </label>
                     <Input
@@ -106,11 +106,13 @@ const ContactForm = () => {
                       {...register("name")}
                       className={`bg-white/10 border-white/20 text-white placeholder:text-white/40 ${errors.name ? "border-destructive" : ""}`}
                     />
-                    {errors.name && <p className="mt-1 text-sm text-destructive">{errors.name.message}</p>}
+                    {errors.name && (
+                      <p className="mt-1 text-[20px] text-destructive">{errors.name.message}</p>
+                    )}
                   </div>
 
                   <div>
-                    <label htmlFor="email" className="mb-2 block text-sm font-medium text-white">
+                    <label htmlFor="email" className="mb-2 block text-[20px] font-medium text-white">
                       Email
                     </label>
                     <Input
@@ -120,11 +122,13 @@ const ContactForm = () => {
                       {...register("email")}
                       className={`bg-white/10 border-white/20 text-white placeholder:text-white/40 ${errors.email ? "border-destructive" : ""}`}
                     />
-                    {errors.email && <p className="mt-1 text-sm text-destructive">{errors.email.message}</p>}
+                    {errors.email && (
+                      <p className="mt-1 text-[20px] text-destructive">{errors.email.message}</p>
+                    )}
                   </div>
 
                   <div>
-                    <label htmlFor="phone" className="mb-2 block text-sm font-medium text-white">
+                    <label htmlFor="phone" className="mb-2 block text-[20px] font-medium text-white">
                       WhatsApp
                     </label>
                     <Input
@@ -133,11 +137,13 @@ const ContactForm = () => {
                       {...register("phone")}
                       className={`bg-white/10 border-white/20 text-white placeholder:text-white/40 ${errors.phone ? "border-destructive" : ""}`}
                     />
-                    {errors.phone && <p className="mt-1 text-sm text-destructive">{errors.phone.message}</p>}
+                    {errors.phone && (
+                      <p className="mt-1 text-[20px] text-destructive">{errors.phone.message}</p>
+                    )}
                   </div>
 
                   <div>
-                    <label htmlFor="message" className="mb-2 block text-sm font-medium text-white">
+                    <label htmlFor="message" className="mb-2 block text-[20px] font-medium text-white">
                       Mensagem
                     </label>
                     <Textarea
@@ -147,13 +153,15 @@ const ContactForm = () => {
                       {...register("message")}
                       className={`bg-white/10 border-white/20 text-white placeholder:text-white/40 ${errors.message ? "border-destructive" : ""}`}
                     />
-                    {errors.message && <p className="mt-1 text-sm text-destructive">{errors.message.message}</p>}
+                    {errors.message && (
+                      <p className="mt-1 text-[20px] text-destructive">{errors.message.message}</p>
+                    )}
                   </div>
 
                   <Button
                     type="submit"
                     size="lg"
-                    className="w-full min-h-12 font-semibold max-md:text-base"
+                    className="w-full min-h-12 font-semibold max-md:text-[20px] bg-[#2b8efa]"
                     disabled={isSubmitting}
                   >
                     {isSubmitting ? (

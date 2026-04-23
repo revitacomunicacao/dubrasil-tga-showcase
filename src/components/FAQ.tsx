@@ -12,7 +12,7 @@ const faqs = [
       <>
         <p>
           A DuBrasil Sistemas estrutura os principais pilares operacionais da
-          empresa — financeiro, fiscal, estoque e vendas — em um ambiente
+          empresa - financeiro, fiscal, estoque e vendas - em um ambiente
           integrado, seguro e alinhado às melhores práticas de gestão.
         </p>
         <p className="mt-4">
@@ -20,7 +20,7 @@ const faqs = [
           desempenho do negócio, reduzam incertezas e apoiem decisões com dados
           consistentes.
         </p>
-        <p className="mt-4 text-sm font-medium text-foreground/80">
+        <p className="mt-4 text-[20px] font-medium text-foreground/80">
           Gestão empresarial com clareza e maturidade.
         </p>
       </>
@@ -44,7 +44,7 @@ const faqs = [
           eficaz, reduzindo riscos de retrabalho e assimilando o sistema à
           realidade da operação.
         </p>
-        <p className="mt-4 text-sm font-medium text-foreground/80">
+        <p className="mt-4 text-[20px] font-medium text-foreground/80">
           Implantação com método. Resultados com consistência.
         </p>
       </>
@@ -63,7 +63,7 @@ const faqs = [
           Com processos estruturados e dados auditáveis, sua empresa opera com
           mais segurança jurídica e menor exposição a contingências.
         </p>
-        <p className="mt-4 text-sm font-medium text-foreground/80">
+        <p className="mt-4 text-[20px] font-medium text-foreground/80">
           Conformidade que protege o negócio.
         </p>
       </>
@@ -82,7 +82,7 @@ const faqs = [
           passa a ser fruto de análises consistentes, tempestivas e alinhadas à
           tomada de decisão executiva.
         </p>
-        <p className="mt-4 text-sm font-medium text-foreground/80">
+        <p className="mt-4 text-[20px] font-medium text-foreground/80">
           Informação estruturada, decisão estratégica.
         </p>
       </>
@@ -108,8 +108,8 @@ const faqs = [
           Esses elementos transformam a tecnologia em Organização da gestão e
           inteligência.
         </p>
-        <p className="mt-4 text-sm font-medium text-foreground/80">
-          Mais que sistema — parceiro estratégico para crescimento sustentável.
+        <p className="mt-4 text-[20px] font-medium text-foreground/80">
+          Mais que sistema - parceiro estratégico para crescimento sustentável.
         </p>
       </>
     ),
@@ -121,13 +121,11 @@ const FAQ = () => {
     <section id="faq" className="bg-[#ededed] py-24 sm:py-32">
       <div className="mx-auto max-w-5xl px-6">
         <div className="text-center mb-14">
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-primary mb-4">
-            FAQ
-          </p>
-          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl text-foreground">
+
+          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-[60px] text-foreground">
             Perguntas frequentes
           </h2>
-          <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="mt-4 text-[20px] text-muted-foreground max-w-2xl mx-auto">
             Respostas rápidas sobre gestão, implantação e conformidade para você
             evoluir com segurança.
           </p>
@@ -137,10 +135,10 @@ const FAQ = () => {
           <Accordion type="single" collapsible className="w-full">
             {faqs.map((faq, index) => (
               <AccordionItem key={faq.question} value={`item-${index}`}>
-                <AccordionTrigger className="text-left text-base sm:text-lg hover:no-underline">
+                <AccordionTrigger className="text-left text-[20px] hover:no-underline">
                   {faq.question}
                 </AccordionTrigger>
-                <AccordionContent className="text-foreground/80 text-base leading-relaxed">
+                <AccordionContent className="text-foreground/80 text-[20px] leading-relaxed">
                   {faq.answer}
                 </AccordionContent>
               </AccordionItem>
@@ -148,8 +146,8 @@ const FAQ = () => {
           </Accordion>
         </div>
 
-        <p className="mt-10 text-center text-base text-foreground/80 max-w-4xl mx-auto">
-          A DuBrasil Sistemas não apenas organiza processos — ela eleva a gestão
+        <p className="mt-10 text-center text-[20px] text-foreground/80 max-w-4xl mx-auto">
+          A DuBrasil Sistemas não apenas organiza processos - ela eleva a gestão
           da sua empresa a um novo patamar de controle, inteligência e
           previsibilidade.
         </p>

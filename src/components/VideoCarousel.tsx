@@ -4,13 +4,47 @@ import { ChevronLeft, ChevronRight, Play, Pause } from "lucide-react"
 import banner2 from "@/assets/dubrasil-fullbanner.jpg.jpeg"
 import banner3 from "@/assets/banners tga.png"
 
+type CarouselTextPart = {
+  text: string
+  /** Palavra(s)-chave em cor de destaque */
+  emphasize?: boolean
+}
+
 interface VideoSlide {
   id: number
   videoUrl: string // VÍDEO ou IMAGEM
-  title: string
-  subtitle: string
+  title: CarouselTextPart[]
+  subtitle: CarouselTextPart[]
 }
 
+const renderSlideTitle = (title: string) => {
+  if (title === "Controle Total do Seu Negócio") {
+    return (
+      <>
+        <span className="font-bold">Controle </span>
+        <span className="font-extrabold text-accent">Total</span>
+        <span className="font-bold"> do seu negócio</span>
+      </>
+    )
+  }
+  if (title === "Decisões Baseadas em Dados") {
+    return (
+      <>
+        <span className="font-bold">Decisões Baseadas em </span>
+        <span className="font-extrabold text-accent">Dados</span>
+      </>
+    )
+  }
+  if (title === "Automatize Seus Processos") {
+    return (
+      <>
+        <span className="font-extrabold text-accent">Automatize</span>
+        <span className="font-bold"> seus processos</span>
+      </>
+    )
+  }
+  return <span className="font-bold">{title}</span>
+}
 const isVideoUrl = (url: string) => {
   return /\.(mp4|webm|ogg)(\?.*)?$/i.test(url)
 }
@@ -20,52 +54,45 @@ const slides: VideoSlide[] = [
     id: 1,
     videoUrl:
       "https://videos.pexels.com/video-files/3129671/3129671-uhd_2560_1440_30fps.mp4",
-    title: "Controle Total do Seu Negócio",
-    subtitle: "Gestão empresarial integrada em uma única plataforma",
+    title: [
+      { text: "Controle Total\n" },
+      { text: "do Seu Negócio", emphasize: true },
+    ],
+    subtitle: [
+      { text: "Gestão empresarial " },
+      { text: "integrada", emphasize: true },
+      { text: " em uma única plataforma" },
+    ],
   },
   {
     id: 2,
     videoUrl: banner2,
-    title: "Decisões Baseadas em Dados",
-    subtitle: "Relatórios e dashboards em tempo real",
+    title: [
+      { text: "Decisões\n" },
+      { text: "Baseadas em Dados", emphasize: true },
+    ],
+    subtitle: [
+      { text: "Relatórios e " },
+      { text: "dashboards", emphasize: true },
+      { text: " em " },
+      { text: "tempo real", emphasize: true },
+    ],
   },
   {
     id: 3,
     videoUrl: banner3,
-    title: "Automatize Seus Processos",
-    subtitle: "Mais produtividade e menos trabalho manual",
+    title: [
+      { text: "Automatize\n" },
+      { text: "Seus Processos", emphasize: true },
+    ],
+    subtitle: [
+      { text: "Mais " },
+      { text: "produtividade", emphasize: true },
+      { text: " e menos " },
+      { text: "trabalho manual", emphasize: true },
+    ],
   },
 ]
-
-const renderSlideTitle = (title: string) => {
-  if (title === "Controle Total do Seu Negócio") {
-    return (
-      <>
-        <span className="font-light">Controle </span>
-        <span className="font-extrabold text-accent">Total</span>
-        <span className="font-light"> do seu negócio</span>
-      </>
-    )
-  }
-  if (title === "Decisões Baseadas em Dados") {
-    return (
-      <>
-        <span className="font-light">Decisões </span>
-        <span className="font-extrabold text-accent">Baseadas</span>
-        <span className="font-light"> em dados</span>
-      </>
-    )
-  }
-  if (title === "Automatize Seus Processos") {
-    return (
-      <>
-        <span className="font-extrabold text-accent">Automatize</span>
-        <span className="font-light"> seus processos</span>
-      </>
-    )
-  }
-  return <span className="font-extrabold">{title}</span>
-}
 
 const VideoCarousel = () => {
   const [currentSlide, setCurrentSlide] = useState(0)
@@ -107,6 +134,24 @@ const VideoCarousel = () => {
 
   const togglePlay = () => setIsPlaying((v) => !v)
 
+  function renderCarouselLine(parts: CarouselTextPart[], variant: "title" | "subtitle") {
+    return parts.map((part, i) => {
+      const isTitle = variant === "title"
+      const base = isTitle
+        ? "text-white [text-shadow:0_2px_28px_rgba(0,0,0,0.55)]"
+        : "text-white/90 [text-shadow:0_1px_18px_rgba(0,0,0,0.45)]"
+      const emphasized = isTitle
+        ? "font-extrabold tracking-tight text-[#2b8efa] drop-shadow-[0_0_24px_rgba(43,142,250,0.35)]"
+        : "font-semibold text-[#2b8efa] not-italic [text-shadow:0_1px_18px_rgba(0,0,0,0.45)]"
+
+      return (
+        <span key={i} className={part.emphasize ? emphasized : base}>
+          {part.text}
+        </span>
+      )
+    })
+  }
+
   const onPointerDown = (clientX: number, clientY: number) => {
     pointerDownX.current = clientX
     pointerDownY.current = clientY
@@ -146,7 +191,7 @@ const VideoCarousel = () => {
 
   return (
     <section
-      className="relative w-full overflow-hidden pt-16 h-[60vh] md:h-screen"
+      className="relative h-[56vh] w-full overflow-hidden max-md:mt-16 max-md:pt-0 md:pt-16 max-md:max-h-[720px] max-md:min-h-[320px] md:h-screen"
       style={{ maxWidth: "100vw" }}
     >
       {/* Swipe layer (evita overflow horizontal) */}
@@ -195,7 +240,7 @@ const VideoCarousel = () => {
             {isVideo ? (
               <video
                 ref={(el) => (videoRefs.current[index] = el)}
-                className="absolute inset-0 w-full h-full object-cover"
+                className="absolute inset-0 w-full h-full object-cover brightness-75"
                 src={slide.videoUrl}
                 muted
                 loop
@@ -206,38 +251,37 @@ const VideoCarousel = () => {
                 {(videoRefs.current[index] = null)}
                 <img
                   src={slide.videoUrl}
-                  alt={slide.title}
-                  className="absolute inset-0 w-full h-full object-cover"
+                  alt={slide.title.map((p) => p.text).join("")}
+                  className="absolute inset-0 w-full h-full object-cover brightness-50"
                   loading="lazy"
                 />
               </>
             )}
 
-            <div className="absolute inset-0 bg-primary/70" />
+            <div className="absolute inset-0 bg-brand-surface/75" />
 
-            <div className="relative z-30 h-full flex items-center overflow-hidden">
-              <div className="container mx-auto px-6 md:px-24 max-w-full">
-                <div className="max-w-3xl pointer-events-auto">
+            <div className="relative z-30 flex h-full items-center overflow-hidden">
+              <div className="container mx-auto max-w-full px-6 max-md:px-4 max-md:pb-16">
+                <div className="mx-auto max-w-3xl text-center pointer-events-auto lg:max-w-5xl">
                   <h1
-                    className={`text-3xl md:text-5xl lg:text-7xl text-primary-foreground mb-4 md:mb-6 transition-all duration-700 ${index === currentSlide
-                        ? "opacity-100 translate-y-0"
-                        : "opacity-0 translate-y-10"
+                    className={`whitespace-pre-line font-display text-4xl font-extrabold leading-[1.08] tracking-tight max-md:text-balance md:text-6xl lg:text-8xl mb-4 md:mb-6 transition-all duration-700 ${index === currentSlide
+                      ? "translate-y-0 opacity-100"
+                      : "translate-y-10 opacity-0"
                       }`}
                     style={{ transitionDelay: "200ms" }}
                   >
-                    {renderSlideTitle(slide.title)}
+                    {renderCarouselLine(slide.title, "title")}
                   </h1>
 
                   <p
-                    className={`text-base md:text-2xl text-primary-foreground/80 mb-6 md:mb-10 transition-all duration-700 ${index === currentSlide
-                        ? "opacity-100 translate-y-0"
-                        : "opacity-0 translate-y-10"
+                    className={`font-display text-xl font-medium leading-relaxed tracking-wide max-md:text-balance md:text-4xl mb-6 md:mb-10 transition-all duration-700 ${index === currentSlide
+                      ? "translate-y-0 opacity-100"
+                      : "translate-y-10 opacity-0"
                       }`}
                     style={{ transitionDelay: "400ms" }}
                   >
-                    {slide.subtitle}
+                    {renderCarouselLine(slide.subtitle, "subtitle")}
                   </p>
-
                 </div>
               </div>
             </div>
@@ -263,38 +307,41 @@ const VideoCarousel = () => {
       </button>
 
       {/* Bottom Controls */}
-      <div className="absolute bottom-6 md:bottom-8 left-1/2 -translate-x-1/2 z-40 flex items-center gap-6 pointer-events-auto">
+      <div className="pointer-events-auto absolute bottom-4 left-1/2 z-40 flex max-md:max-w-[calc(100vw-1rem)] -translate-x-1/2 items-center gap-4 max-md:px-1 md:bottom-8 md:gap-6 max-md:pb-[env(safe-area-inset-bottom,0px)]">
         <button
+          type="button"
           onClick={togglePlay}
-          className="w-10 h-10 bg-primary-foreground/10 hover:bg-primary-foreground/20 backdrop-blur-sm rounded-full flex items-center justify-center transition-all"
+          className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-primary-foreground/10 backdrop-blur-sm transition-all hover:bg-primary-foreground/20 md:h-10 md:w-10"
           aria-label={isPlaying ? "Pausar" : "Reproduzir"}
         >
           {isPlaying ? (
-            <Pause className="w-4 h-4 text-primary-foreground" />
+            <Pause className="h-4 w-4 text-primary-foreground" />
           ) : (
-            <Play className="w-4 h-4 text-primary-foreground ml-0.5" />
+            <Play className="ml-0.5 h-4 w-4 text-primary-foreground" />
           )}
         </button>
 
-        <div className="flex gap-3">
+        <div className="flex items-center gap-2 md:gap-3">
           {slides.map((_, index) => (
             <button
               key={index}
+              type="button"
               onClick={() => goToSlide(index)}
-              className={`h-2 rounded-full transition-all duration-300 ${index === currentSlide
+              className="flex min-h-11 min-w-11 items-center justify-center rounded-full md:min-h-0 md:min-w-0"
+              aria-label={`Ir para slide ${index + 1}`}
+            >
+              <span
+                className={`block h-2 rounded-full transition-all duration-300 ${index === currentSlide
                   ? "w-8 bg-accent"
                   : "w-2 bg-primary-foreground/40 hover:bg-primary-foreground/60"
-                }`}
-              aria-label={`Ir para slide ${index + 1}`}
-            />
+                  }`}
+              />
+            </button>
           ))}
         </div>
       </div>
 
       <div className="absolute bottom-8 right-8 z-40 hidden md:flex flex-col items-center gap-2 text-primary-foreground/60 pointer-events-none">
-        <span className="text-xs uppercase tracking-wider rotate-90 origin-center translate-x-4">
-          Scroll
-        </span>
         <div className="w-px h-12 bg-primary-foreground/30 relative overflow-hidden">
           <div className="absolute top-0 left-0 w-full h-1/2 bg-accent animate-[slide-down_1.5s_ease-in-out_infinite]" />
         </div>

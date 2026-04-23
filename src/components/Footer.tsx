@@ -67,7 +67,7 @@ const Footer = () => {
                 : "opacity-0 translate-y-3",
             ].join(" ")}
           >
-            <p className="text-accent font-semibold text-sm uppercase tracking-wider">
+            <p className="text-accent font-semibold text-[20px] uppercase tracking-wider">
               Contato
             </p>
 
@@ -96,7 +96,7 @@ const Footer = () => {
                 : "opacity-0 translate-y-3",
             ].join(" ")}
           >
-            <p className="text-accent font-semibold text-sm uppercase tracking-wider">
+            <p className="text-accent font-semibold text-[20px] uppercase tracking-wider">
               Endereço
             </p>
 
@@ -117,7 +117,7 @@ const Footer = () => {
                 : "opacity-0 translate-y-3",
             ].join(" ")}
           >
-            <p className="text-accent font-semibold text-sm uppercase tracking-wider">
+            <p className="text-accent font-semibold text-[20px] uppercase tracking-wider">
               Redes sociais
             </p>
 
@@ -170,10 +170,10 @@ const Footer = () => {
       <div className="border-t border-white/10">
         <div className="container mx-auto px-4 py-6">
           <div className="flex flex-col gap-2 text-center md:flex-row md:items-center md:justify-between">
-            <p className="text-primary-foreground/70 text-sm">
+            <p className="text-primary-foreground/70 text-[20px]">
               © {currentYear} DuBrasil Soluções. Todos os direitos reservados.
             </p>
-            <p className="text-primary-foreground/50 text-xs">
+            <p className="text-primary-foreground/50 text-[20px]">
               Distribuidor autorizado do ERP TGA
             </p>
           </div>
