@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react"
-import backgroundRotinas from "@/assets/background bloco rotinas.jpeg"
+import backgroundRotinas from "@/assets/background_controle-rotinas.jpg.jpeg"
 import iconMercado from "@/assets/mercado.png"
 import iconComercio from "@/assets/comércio varejista.png"
 import iconPrestadores from "@/assets/prestadores de serviço.png"
@@ -43,7 +43,8 @@ export default function ParaQuemE() {
       className="relative flex min-h-[850px] items-center bg-cover bg-center bg-no-repeat"
       style={{ backgroundImage: `url(${backgroundRotinas})` }}
     >
-      <div className="container mx-auto px-4 w-full">
+      <div className="absolute inset-0 bg-[#05244a]/80" aria-hidden="true" />
+      <div className="relative z-10 container mx-auto px-4 w-full">
         <div className="max-w-5xl mx-auto">
           <h2
             className={[
@@ -51,7 +52,7 @@ export default function ParaQuemE() {
               inView ? "animate-in fade-in slide-in-from-bottom-6 duration-700" : "opacity-0 translate-y-3",
             ].join(" ")}
           >
-            <span className="font-light text-[#08284f]">Ideal para empresas <br />que precisam de </span>
+            <span className="font-light text-white">Ideal para empresas <br />que precisam de </span>
             <br /><span className="font-extrabold text-[#2b8efa]">controle e rotina</span>
           </h2>
 
