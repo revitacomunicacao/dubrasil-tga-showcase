@@ -1,7 +1,7 @@
 // src/components/VideoCarousel.tsx
 import { useState, useEffect, useRef } from "react"
 import { ChevronLeft, ChevronRight, Play, Pause } from "lucide-react"
-import banner2 from "@/assets/dubrasil-fullbanner.jpg.jpeg"
+import banner2 from "@/assets/fullbaner-decisao-base-dados.jpeg"
 import banner3 from "@/assets/banners tga.png"
 
 type CarouselTextPart = {

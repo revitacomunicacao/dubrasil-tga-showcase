@@ -1,11 +1,9 @@
 import React, { useEffect, useRef, useState } from "react"
-import {
-  BriefcaseBusiness,
-  Layers,
-  ShoppingCart,
-  Store,
-} from "lucide-react"
 import backgroundRotinas from "@/assets/background bloco rotinas.jpeg"
+import iconMercado from "@/assets/mercado.png"
+import iconComercio from "@/assets/comércio varejista.png"
+import iconPrestadores from "@/assets/prestadores de serviço.png"
+import iconOperacoes from "@/assets/operações.png"
 
 function useInView<T extends HTMLElement>(
   options: IntersectionObserverInit & { once?: boolean } = { threshold: 0.2, once: true }
@@ -29,10 +27,10 @@ function useInView<T extends HTMLElement>(
 }
 
 const items = [
-  { label: "Mercados e operações com alto giro", Icon: ShoppingCart },
-  { label: "Comércio varejista / lojas", Icon: Store },
-  { label: "Prestadores de serviço e pequenas empresas", Icon: BriefcaseBusiness },
-  { label: "Operações que precisam integrar financeiro + estoque + emissão", Icon: Layers },
+  { label: "Mercados e operações com alto giro", iconSrc: iconMercado },
+  { label: "Comércio varejista / lojas", iconSrc: iconComercio },
+  { label: "Prestadores de serviço e pequenas empresas", iconSrc: iconPrestadores },
+  { label: "Operações que precisam integrar financeiro + estoque + emissão", iconSrc: iconOperacoes },
 ] as const
 
 export default function ParaQuemE() {
@@ -58,7 +56,7 @@ export default function ParaQuemE() {
           </h2>
 
           <div className="mt-10 grid grid-cols-2 md:grid-cols-4 gap-6">
-            {items.map(({ label, Icon }, idx) => (
+            {items.map(({ label, iconSrc }, idx) => (
               <div
                 key={label}
                 className={[
@@ -68,7 +66,13 @@ export default function ParaQuemE() {
                 style={inView ? { animationDelay: `${idx * 90}ms` } : undefined}
               >
                 <div className="w-14 h-14 rounded-xl bg-[#08284f] flex items-center justify-center">
-                  <Icon className="h-7 w-7 text-white" aria-hidden="true" />
+                  <img
+                    src={iconSrc}
+                    alt=""
+                    className="h-12 w-12 object-contain"
+                    loading="lazy"
+                    decoding="async"
+                  />
                 </div>
                 <span className="text-[20px] font-medium text-white leading-snug">{label}</span>
               </div>
