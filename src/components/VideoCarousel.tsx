@@ -52,16 +52,16 @@ const isVideoUrl = (url: string) => {
 const slides: VideoSlide[] = [
   {
     id: 1,
-    videoUrl:
-      "https://videos.pexels.com/video-files/3129671/3129671-uhd_2560_1440_30fps.mp4",
+    videoUrl: banner3,
     title: [
-      { text: "Controle Total\n" },
-      { text: "do Seu Negócio", emphasize: true },
+      { text: "Automatize\n" },
+      { text: "Seus Processos", emphasize: true },
     ],
     subtitle: [
-      { text: "Gestão empresarial " },
-      { text: "integrada", emphasize: true },
-      { text: " em uma única plataforma" },
+      { text: "Mais " },
+      { text: "produtividade", emphasize: true },
+      { text: " e menos " },
+      { text: "trabalho manual", emphasize: true },
     ],
   },
   {
@@ -80,18 +80,19 @@ const slides: VideoSlide[] = [
   },
   {
     id: 3,
-    videoUrl: banner3,
+    videoUrl:
+      "https://videos.pexels.com/video-files/3129671/3129671-uhd_2560_1440_30fps.mp4",
     title: [
-      { text: "Automatize\n" },
-      { text: "Seus Processos", emphasize: true },
+      { text: "Controle Total\n" },
+      { text: "do Seu Negócio", emphasize: true },
     ],
     subtitle: [
-      { text: "Mais " },
-      { text: "produtividade", emphasize: true },
-      { text: " e menos " },
-      { text: "trabalho manual", emphasize: true },
+      { text: "Gestão empresarial " },
+      { text: "integrada", emphasize: true },
+      { text: " em uma única plataforma" },
     ],
   },
+  
 ]
 
 const VideoCarousel = () => {

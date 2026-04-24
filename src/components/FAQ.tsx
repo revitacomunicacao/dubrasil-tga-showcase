@@ -4,6 +4,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import faqBg from "@/assets/background_faq.jpeg"
 
 const faqs = [
   {
@@ -118,27 +119,35 @@ const faqs = [
 
 const FAQ = () => {
   return (
-    <section id="faq" className="bg-[#ededed] py-24 sm:py-32">
-      <div className="mx-auto max-w-5xl px-6">
+    <section
+      id="faq"
+      className="relative overflow-hidden py-24 sm:py-32"
+    >
+      <div
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat bg-fixed"
+        style={{ backgroundImage: `url(${faqBg})` }}
+      />
+      <div className="absolute inset-0 bg-brand-surface/90" />
+      <div className="relative mx-auto max-w-5xl px-6">
         <div className="text-center mb-14">
 
-          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-[60px] text-foreground">
+          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-[60px] text-white">
             Perguntas frequentes
           </h2>
-          <p className="mt-4 text-[20px] text-muted-foreground max-w-2xl mx-auto">
+          <p className="mt-4 text-[20px] text-white max-w-2xl mx-auto">
             Respostas rápidas sobre gestão, implantação e conformidade para você
             evoluir com segurança.
           </p>
         </div>
 
-        <div className="rounded-3xl border border-border bg-card p-6 sm:p-8 shadow-sm">
+        <div className="rounded-3xl border border-white/10 bg-white/10 backdrop-blur-sm p-6 sm:p-8 shadow-sm">
           <Accordion type="single" collapsible className="w-full">
             {faqs.map((faq, index) => (
               <AccordionItem key={faq.question} value={`item-${index}`}>
-                <AccordionTrigger className="text-left text-[20px] hover:no-underline">
+                <AccordionTrigger className="text-left text-[20px] hover:no-underline text-white">
                   {faq.question}
                 </AccordionTrigger>
-                <AccordionContent className="text-foreground/80 text-[20px] leading-relaxed">
+                <AccordionContent className="text-white/80 text-[20px] leading-relaxed">
                   {faq.answer}
                 </AccordionContent>
               </AccordionItem>
@@ -146,7 +155,7 @@ const FAQ = () => {
           </Accordion>
         </div>
 
-        <p className="mt-10 text-center text-[20px] text-foreground/80 max-w-4xl mx-auto">
+        <p className="mt-10 text-center text-[20px] text-white/80 max-w-4xl mx-auto">
           A DuBrasil Sistemas não apenas organiza processos - ela eleva a gestão
           da sua empresa a um novo patamar de controle, inteligência e
           previsibilidade.
