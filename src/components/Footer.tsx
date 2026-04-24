@@ -43,7 +43,7 @@ const Footer = () => {
   return (
     <footer
       ref={ref}
-      className="relative border-t-4 border-primary text-white"
+      className="relative border-t-4 border-[#2c90fe] text-white"
       style={{
         background:
           "linear-gradient(180deg, hsl(210 100% 8%) 0%, hsl(210 100% 5%) 100%)",
@@ -78,7 +78,7 @@ const Footer = () => {
                 : "opacity-0 translate-y-3",
             ].join(" ")}
           >
-            <p className="text-sm font-semibold uppercase tracking-wider text-primary">
+            <p className="text-[16px] font-semibold uppercase tracking-wider text-[#2c90fe]">
               Contato
             </p>
 
@@ -107,7 +107,7 @@ const Footer = () => {
                 : "opacity-0 translate-y-3",
             ].join(" ")}
           >
-            <p className="text-sm font-semibold uppercase tracking-wider text-primary">
+            <p className="text-[16px] font-semibold uppercase tracking-wider text-[#2c90fe]">
               Endereço
             </p>
 
@@ -128,7 +128,7 @@ const Footer = () => {
                 : "opacity-0 translate-y-3",
             ].join(" ")}
           >
-            <p className="text-sm font-semibold uppercase tracking-wider text-primary">
+            <p className="text-[16px] font-semibold uppercase tracking-wider text-[#2c90fe]">
               Redes sociais
             </p>
 
