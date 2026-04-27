@@ -1,9 +1,9 @@
 import React, { useEffect, useRef, useState } from "react"
 import backgroundRotinas from "@/assets/background_controle-rotinas.jpg.jpeg"
 import iconMercado from "@/assets/mercado.png"
-import iconComercio from "@/assets/comércio varejista.png"
-import iconPrestadores from "@/assets/prestadores de serviço.png"
-import iconOperacoes from "@/assets/operações.png"
+import iconComercio from "@/assets/comercio.png"
+import iconPrestadores from "@/assets/prestadores.png"
+import iconOperacoes from "@/assets/operacoes.png"
 
 function useInView<T extends HTMLElement>(
   options: IntersectionObserverInit & { once?: boolean } = { threshold: 0.2, once: true }
