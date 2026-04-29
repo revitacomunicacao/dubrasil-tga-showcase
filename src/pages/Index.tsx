@@ -3,6 +3,7 @@ import VideoCarousel from "@/components/VideoCarousel";
 import Hero from "@/components/Hero";
 import Modules from "@/components/Modules";
 import ModulesAlt from "@/components/ModulesAlt";
+import ModulesMock from "@/components/ModulesMock";
 import ParaQuemE from "@/components/ParaQuemE";
 import Benefits from "@/components/Benefits";
 import Footer from "@/components/Footer";
@@ -19,6 +20,7 @@ const Index = () => {
       <Hero />
       <Modules />
       <ModulesAlt />
+      <ModulesMock />
       <SolucoesDuBrasil />
       <ParaQuemE />
       <Benefits />
