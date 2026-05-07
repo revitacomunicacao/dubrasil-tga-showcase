@@ -18,8 +18,6 @@ const Index = () => {
       <Header />
       <VideoCarousel />
       <Hero />
-      <Modules />
-      <ModulesAlt />
       <ModulesMock />
       <SolucoesDuBrasil />
       <ParaQuemE />
