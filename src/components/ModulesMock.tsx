@@ -64,7 +64,6 @@ const ModulesMock = () => {
               className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               loading="lazy"
             />
-            <div className="absolute inset-0 bg-gradient-to-b from-white/85 via-white/55 to-transparent" />
             <div className="relative z-10 flex flex-col items-center text-center px-6 md:px-10 pt-8 md:pt-12">
               <h3 className="font-poppins font-bold text-2xl md:text-4xl text-primary mb-2">
                 {card.title}
