@@ -66,24 +66,24 @@ const Header = () => {
       </div>{" "}
       {/* Mobile Navigation */}{" "}
       {isMenuOpen && (
-        <nav className="md:hidden bg-primary border-t border-primary-foreground/10 py-4">
+        <nav className="md:hidden bg-primary border-t border-primary-foreground/10 py-4 max-h-[calc(100dvh-4rem)] overflow-y-auto">
           {" "}
-          <div className="container mx-auto px-4 flex flex-col gap-4">
+          <div className="container mx-auto px-4 flex flex-col gap-3">
             <button
               onClick={() => scrollToSection("modulos")}
-              className="text-[#05244a] hover:text-[#05244a]/90 transition-colors font-medium"
+              className="min-h-11 py-2 text-left text-[#05244a] hover:text-[#05244a]/90 transition-colors font-medium"
             >
               Soluções
             </button>
             <button
               onClick={() => scrollToSection("para-quem-e")}
-              className="text-[#05244a] hover:text-[#05244a]/90 transition-colors font-medium"
+              className="min-h-11 py-2 text-left text-[#05244a] hover:text-[#05244a]/90 transition-colors font-medium"
             >
               Para quem é
             </button>
             <button
               onClick={() => scrollToSection("diferencial")}
-              className="text-[#05244a] hover:text-[#05244a]/90 transition-colors font-medium"
+              className="min-h-11 py-2 text-left text-[#05244a] hover:text-[#05244a]/90 transition-colors font-medium"
             >
               Diferencial
             </button>

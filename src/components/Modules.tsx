@@ -76,9 +76,9 @@ const Modules = () => {
   const { ref, inView } = useInView<HTMLElement>({ threshold: 0.05, once: true })
 
   return (
-    <section ref={ref} id="modulos" className="py-16 bg-[#ededed]">
+    <section ref={ref} id="modulos" className="py-12 md:py-16 bg-[#ededed]">
       <div className="container mx-auto px-4">
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-md:gap-6 md:gap-12">
           {modules.map((module, index) => (
             <div
               key={index}
@@ -91,14 +91,14 @@ const Modules = () => {
               style={inView ? { animationDelay: `${index * 100}ms` } : undefined}
             >
               {/* Text on top */}
-              <div className="p-5 pb-2">
-                <h3 className="text-3xl font-bold text-[#2b8efa] mb-1 py-4 h-[100px] flex items-center overflow-hidden">
+              <div className="p-5 pb-2 max-md:p-4">
+                <h3 className="text-3xl max-md:text-2xl font-bold text-[#2b8efa] mb-1 py-4 max-md:py-2 max-md:h-auto md:h-[100px] flex items-center overflow-hidden">
                   {module.title}
                 </h3>
-                <p className="text-[20px] font-semibold text-primary mb-0.5 h-[64px] overflow-hidden [-webkit-line-clamp:2] [-webkit-box-orient:vertical] [display:-webkit-box]">
+                <p className="text-[20px] max-md:text-base font-semibold text-primary mb-0.5 max-md:h-auto md:h-[64px] overflow-hidden [-webkit-line-clamp:2] [-webkit-box-orient:vertical] [display:-webkit-box]">
                   {module.subtitle}
                 </p>
-                <p className="text-[20px] text-muted-foreground leading-relaxed h-[140px] overflow-hidden [-webkit-line-clamp:4] [-webkit-box-orient:vertical] [display:-webkit-box]">
+                <p className="text-[20px] max-md:text-base text-muted-foreground leading-relaxed max-md:h-auto md:h-[140px] overflow-hidden [-webkit-line-clamp:4] [-webkit-box-orient:vertical] [display:-webkit-box]">
                   {module.description}
                 </p>
               </div>
@@ -108,7 +108,7 @@ const Modules = () => {
                 <img
                   src={module.image}
                   alt={module.title}
-                  className="w-full h-[400px] object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                  className="w-full h-[260px] max-md:object-[center_20%] md:h-[400px] object-cover object-top group-hover:scale-105 transition-transform duration-500"
                   loading="lazy"
                 />
               </div>

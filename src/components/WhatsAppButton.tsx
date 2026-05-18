@@ -7,7 +7,7 @@ const WhatsAppButton = () => {
   return (
     <button
       onClick={scrollToContactForm}
-      className="fixed bottom-6 right-6 z-50 bg-[#25D366] hover:bg-[#20BD5A] text-white p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 group"
+      className="fixed bottom-5 right-4 z-50 bg-[#25D366] hover:bg-[#20BD5A] text-white p-3.5 md:p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 group max-md:bottom-[max(1.25rem,env(safe-area-inset-bottom))] max-md:right-4"
       aria-label="Ir para o formulário de contato"
     >
       <svg

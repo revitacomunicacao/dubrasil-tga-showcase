@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react"
-import newMockups from "@/assets/TGA - Menos planilha.jpeg"
+import newMockups from "@/assets/mockuptga.png"
 
 function useInView<T extends HTMLElement>(
   options: IntersectionObserverInit & { once?: boolean } = { threshold: 0.2, once: true }
@@ -26,7 +26,7 @@ const Hero = () => {
   const { ref, inView } = useInView<HTMLElement>({ threshold: 0.1, once: true })
 
   return (
-    <section ref={ref} className="pt-8 pb-7 bg-secondary relative overflow-hidden">
+    <section ref={ref} className="pt-6 pb-6 md:pt-8 md:pb-7 bg-secondary relative overflow-hidden">
       <div className="container mx-auto px-4 relative z-10">
         {/* Devices mockup image */}
         <div
@@ -38,7 +38,7 @@ const Hero = () => {
           <img
             src={newMockups}
             alt="ERP DuBrasil em múltiplos dispositivos - desktop, notebook e smartphone"
-            className="pt-6 w-full h-auto"
+            className="w-full h-auto max-md:max-h-[280px] max-md:object-contain max-md:mx-auto md:pt-6"
             loading="lazy"
           />
         </div>
@@ -46,17 +46,17 @@ const Hero = () => {
         {/* Text card overlapping bottom */}
         <div
           className={[
-            "mx-auto bg-background rounded-3xl shadow-lg px-8 md:px-12 py-10 text-center -mt-4 relative z-10",
+            "mx-auto bg-background rounded-3xl shadow-lg px-5 py-8 max-md:-mt-2 md:px-12 md:py-10 text-center -mt-4 relative z-10 max-w-4xl",
             inView ? "animate-in fade-in slide-in-from-bottom-6 duration-700 delay-300" : "opacity-0 translate-y-3",
           ].join(" ")}
         >
-          <h2 className="font-display text-[60px] font-extrabold leading-[1.08] tracking-tight max-md:text-balance text-foreground mb-4 md:mb-6">
+          <h2 className="font-display text-3xl sm:text-4xl md:text-[60px] font-extrabold leading-[1.08] tracking-tight max-md:text-balance text-foreground mb-4 md:mb-6">
             Menos{" "}
             planilhas. Menos{" "}
             retrabalho. <br />{" "}
             <span className="text-[#2b8efa] font-extrabold">Mais controle.</span>
           </h2>
-          <p className="font-display text-[20px] font-medium leading-relaxed tracking-wide max-md:text-balance text-muted-foreground max-w-4xl mx-auto">
+          <p className="font-display text-base md:text-[20px] font-medium leading-relaxed tracking-wide max-md:text-balance text-muted-foreground max-w-4xl mx-auto">
             O ERP é para empresas que querem parar de "apagar incêndio" e passar a ter rotina: compras,
             vendas, estoque, financeiro e fiscal funcionando com integração e visibilidade para decisão.
           </p>

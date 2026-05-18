@@ -75,7 +75,7 @@ const ModulesAlt = () => {
   const { ref, inView } = useInView<HTMLElement>({ threshold: 0.05, once: true })
 
   return (
-    <section ref={ref} id="modulos-alt" className="py-16 bg-[#ededed]">
+    <section ref={ref} id="modulos-alt" className="py-12 md:py-16 bg-[#ededed]">
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12">
           {modules.map((module, index) => (
@@ -88,28 +88,28 @@ const ModulesAlt = () => {
               style={inView ? { animationDelay: `${index * 100}ms` } : undefined}
             >
               {/* Image on top */}
-              <div className="relative overflow-hidden">
+              <div className="relative overflow-hidden h-[200px] max-md:h-[200px] md:h-[320px]">
                 <img
                   src={module.image}
                   alt={module.title}
-                  className="w-full h-[320px] object-cover object-center group-hover:scale-105 transition-transform duration-500 will-change-transform"
+                  className="w-full h-full object-cover object-center md:object-top group-hover:scale-105 transition-transform duration-500 will-change-transform"
                   loading="lazy"
                 />
 
                 {/* Title stripe (inside image, bottom) */}
                 <div className="absolute inset-x-0 bottom-0 z-10 bg-[#2b8efa]/80 backdrop-blur-sm px-5 py-4">
-                  <h3 className="text-2xl font-bold text-white leading-tight">
+                  <h3 className="text-xl max-md:text-xl md:text-2xl font-bold text-white leading-tight">
                     {module.title}
                   </h3>
                 </div>
               </div>
 
               {/* Content below image */}
-              <div className="p-5">
-                <p className="text-[20px] font-semibold text-primary mb-0.5">
+              <div className="p-5 max-md:p-4">
+                <p className="text-[20px] max-md:text-base font-semibold text-primary mb-0.5">
                   {module.subtitle}
                 </p>
-                <p className="text-[20px] text-muted-foreground leading-relaxed">
+                <p className="text-[20px] max-md:text-base text-muted-foreground leading-relaxed">
                   {module.description}
                 </p>
               </div>

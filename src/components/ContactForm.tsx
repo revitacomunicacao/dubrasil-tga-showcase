@@ -62,12 +62,13 @@ const ContactForm = () => {
   return (
     <section
       id="contato"
-      className="relative flex min-h-[850px] flex-col overflow-hidden py-24 max-md:py-16"
+      className="relative flex min-h-0 max-md:min-h-[70vh] md:min-h-[850px] flex-col overflow-hidden py-16 max-md:py-14 md:py-24"
     >
       <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        className="absolute inset-0 bg-cover bg-[center_top] md:bg-center bg-no-repeat"
         style={{ backgroundImage: `url(${bgMeshAlt})` }}
       />
+      <div className="absolute inset-0 max-md:bg-black/35 md:hidden" aria-hidden="true" />
       <div
         className="absolute inset-0"
         style={{
@@ -79,16 +80,16 @@ const ContactForm = () => {
 
       <div className="relative z-10 flex w-full flex-1 flex-col justify-center">
         <div className="container mx-auto px-4">
-          <div className="grid items-center gap-10 lg:grid-cols-12 lg:gap-12">
+          <div className="grid items-center gap-8 md:gap-10 lg:grid-cols-12 lg:gap-12">
             {/* Textos */}
             <div className="lg:col-span-6 flex flex-col items-center justify-center lg:items-start">
               <div className="w-full max-w-2xl text-left">
-                <h2 className="mt-2 text-4xl leading-[1.05] tracking-tight text-white max-md:text-balance md:text-5xl lg:text-6xl">
+                <h2 className="mt-2 text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-[1.05] tracking-tight text-white max-md:text-balance">
                   <span className="font-light">Pronto para </span>
                   <span className="block font-extrabold text-[#2e92fe]">transformar</span>
                   <span className="font-light">seu atendimento?</span>
                 </h2>
-                <h3 className="mt-20 text-4xl leading-[1.05] tracking-tight text-white max-md:text-balance md:text-5xl lg:text-6xl">
+                <h3 className="mt-10 max-md:mt-8 text-2xl sm:text-3xl leading-[1.05] tracking-tight text-white max-md:text-balance md:mt-20 md:text-5xl lg:text-6xl">
                   <span className="block font-light">Vamos</span>
                   <span className="block font-extrabold text-[#2e92fe]">construir</span>
                   <span className="block font-light">essa história?</span>
@@ -101,7 +102,7 @@ const ContactForm = () => {
               <div className="rounded-2xl border border-white/15 bg-white/5 backdrop-blur-sm p-6 shadow-card max-md:p-5 md:p-8">
                 <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
                   <div>
-                    <label htmlFor="name" className="mb-2 block text-[20px] font-medium text-white">
+                    <label htmlFor="name" className="mb-2 block text-base md:text-[20px] font-medium text-white">
                       Nome completo
                     </label>
                     <Input
@@ -116,7 +117,7 @@ const ContactForm = () => {
                   </div>
 
                   <div>
-                    <label htmlFor="email" className="mb-2 block text-[20px] font-medium text-white">
+                    <label htmlFor="email" className="mb-2 block text-base md:text-[20px] font-medium text-white">
                       Email
                     </label>
                     <Input
@@ -132,7 +133,7 @@ const ContactForm = () => {
                   </div>
 
                   <div>
-                    <label htmlFor="phone" className="mb-2 block text-[20px] font-medium text-white">
+                    <label htmlFor="phone" className="mb-2 block text-base md:text-[20px] font-medium text-white">
                       WhatsApp
                     </label>
                     <Input
@@ -147,7 +148,7 @@ const ContactForm = () => {
                   </div>
 
                   <div>
-                    <label htmlFor="message" className="mb-2 block text-[20px] font-medium text-white">
+                    <label htmlFor="message" className="mb-2 block text-base md:text-[20px] font-medium text-white">
                       Mensagem
                     </label>
                     <Textarea

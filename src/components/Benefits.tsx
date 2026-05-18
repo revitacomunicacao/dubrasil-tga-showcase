@@ -56,15 +56,15 @@ const Benefits = () => {
     <section
       ref={ref}
       id="diferencial"
-      className="relative overflow-hidden section-pad text-primary-foreground bg-cover bg-center bg-no-repeat"
+      className="relative overflow-hidden section-pad text-primary-foreground bg-cover bg-[center_35%] md:bg-center bg-no-repeat"
       style={{ backgroundImage: `url(${tgaBG})` }}
     >
-      <div className="absolute inset-0" />
+      <div className="absolute inset-0 bg-brand-surface/55 max-md:bg-brand-surface/65 md:bg-transparent" aria-hidden="true" />
       <div className="container mx-auto px-4">
-        <div className="relative text-center mb-16">
+        <div className="relative text-center mb-10 max-md:mb-10 md:mb-16">
           <h2
             className={[
-              "mt-2 mb-4 text-4xl leading-[1.05] tracking-tight max-md:text-balance md:text-5xl lg:text-6xl drop-shadow-[0_2px_12px_rgba(0,0,0,0.35)]",
+              "mt-2 mb-4 text-3xl sm:text-4xl leading-[1.05] tracking-tight max-md:text-balance md:text-5xl lg:text-6xl drop-shadow-[0_2px_12px_rgba(0,0,0,0.35)]",
               inView
                 ? "animate-in fade-in slide-in-from-bottom-5 duration-700 delay-150"
                 : "opacity-0 translate-y-3",
@@ -76,7 +76,7 @@ const Benefits = () => {
 
           <p
             className={[
-              "text-[20px] max-w-3xl mx-auto leading-relaxed",
+              "text-base max-md:text-base md:text-[20px] max-w-3xl mx-auto leading-relaxed",
               inView
                 ? "animate-in fade-in slide-in-from-bottom-5 duration-700 delay-300"
                 : "opacity-0 translate-y-3",
@@ -87,7 +87,7 @@ const Benefits = () => {
           </p>
         </div>
 
-        <div className="relative max-w-4xl mx-auto grid md:grid-cols-2 gap-8">
+        <div className="relative max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
           {steps.map((step, index) => (
             <div
               key={step.title}

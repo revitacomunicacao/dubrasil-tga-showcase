@@ -40,15 +40,15 @@ export default function ParaQuemE() {
     <section
       ref={ref}
       id="para-quem-e"
-      className="relative flex min-h-[850px] items-center bg-cover bg-center bg-no-repeat"
+      className="relative flex min-h-[70vh] max-md:py-14 md:min-h-[850px] items-center bg-cover bg-[center_30%] md:bg-center bg-no-repeat"
       style={{ backgroundImage: `url(${backgroundRotinas})` }}
     >
-      <div className="absolute inset-0 bg-[#05244a]/80" aria-hidden="true" />
+      <div className="absolute inset-0 bg-[#05244a]/80 max-md:bg-[#05244a]/88" aria-hidden="true" />
       <div className="relative z-10 container mx-auto px-4 w-full">
         <div className="max-w-5xl mx-auto">
           <h2
             className={[
-              "whitespace-pre-line font-display text-4xl font-extrabold leading-[1.08] tracking-tight max-md:text-balance md:text-6xl lg:text-8xl text-brand-support text-center drop-shadow-[0_2px_12px_rgba(0,0,0,0.35)]",
+              "whitespace-pre-line font-display text-3xl sm:text-4xl md:text-6xl lg:text-8xl font-extrabold leading-[1.08] tracking-tight text-center max-md:text-balance drop-shadow-[0_2px_12px_rgba(0,0,0,0.35)]",
               inView ? "animate-in fade-in slide-in-from-bottom-6 duration-700" : "opacity-0 translate-y-3",
             ].join(" ")}
           >
@@ -56,12 +56,12 @@ export default function ParaQuemE() {
             <br /><span className="font-extrabold text-[#2b8efa]">controle e rotina</span>
           </h2>
 
-          <div className="mt-10 grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div className="mt-8 max-md:mt-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
             {items.map(({ label, iconSrc }, idx) => (
               <div
                 key={label}
                 className={[
-                  "bg-[#2b8efa]/80 rounded-2xl p-5 flex flex-col items-center text-center gap-4",
+                  "bg-[#2b8efa]/80 rounded-2xl p-4 max-md:p-4 md:p-5 flex flex-col items-center text-center gap-3 max-md:gap-3 md:gap-4",
                   inView ? "animate-in fade-in slide-in-from-bottom-6 duration-700" : "opacity-0 translate-y-3",
                 ].join(" ")}
                 style={inView ? { animationDelay: `${idx * 90}ms` } : undefined}
@@ -75,7 +75,7 @@ export default function ParaQuemE() {
                     decoding="async"
                   />
                 </div>
-                <span className="text-[20px] font-medium text-white leading-snug">{label}</span>
+                <span className="text-base max-md:text-base md:text-[20px] font-medium text-white leading-snug">{label}</span>
               </div>
             ))}
           </div>
