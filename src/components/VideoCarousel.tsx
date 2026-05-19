@@ -3,6 +3,7 @@ import { useState, useEffect, useRef } from "react"
 import { ChevronLeft, ChevronRight, Play, Pause } from "lucide-react"
 import banner2 from "@/assets/fullbaner-decisao-base-dados.jpeg"
 import banner3 from "@/assets/banners tga.png"
+import video from "@/assets/video.png"
 
 type CarouselTextPart = {
   text: string
@@ -80,8 +81,7 @@ const slides: VideoSlide[] = [
   },
   {
     id: 3,
-    videoUrl:
-      "https://videos.pexels.com/video-files/3129671/3129671-uhd_2560_1440_30fps.mp4",
+    videoUrl: video,
     title: [
       { text: "Controle Total\n" },
       { text: "do Seu Negócio", emphasize: true },

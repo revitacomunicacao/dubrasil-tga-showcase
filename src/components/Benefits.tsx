@@ -1,7 +1,6 @@
-// src/components/Benefits.tsx
 import React, { useEffect, useRef, useState } from "react"
-import { CheckCircle2 } from "lucide-react"
-import tgaBG from "@/assets/tgaBG.jpeg"
+import { parseBenefitsTitle } from "@/lib/cms"
+import type { HomePageContent } from "@/types/cms"
 
 function useInView<T extends HTMLElement>(
   options: IntersectionObserverInit & { once?: boolean } = { threshold: 0.25, once: true }
@@ -30,34 +29,20 @@ function useInView<T extends HTMLElement>(
   return { ref, inView }
 }
 
-const steps = [
-  {
-    title: "Diagnóstico do processo",
-    description: "Como vocês trabalham hoje.",
-  },
-  {
-    title: "Parametrização e organização",
-    description: "Cadastros, regras e fluxos.",
-  },
-  {
-    title: "Treinamento por perfil",
-    description: "Quem lança, quem confere, quem decide.",
-  },
-  {
-    title: "Acompanhamento até estabilizar",
-    description: "Primeiro ciclo rodando sem dor.",
-  },
-]
+type BenefitsProps = {
+  content: HomePageContent["benefits"]
+}
 
-const Benefits = () => {
+const Benefits = ({ content }: BenefitsProps) => {
   const { ref, inView } = useInView<HTMLElement>({ threshold: 0.2, once: true })
+  const { light, accent } = parseBenefitsTitle(content.title)
 
   return (
     <section
       ref={ref}
       id="diferencial"
       className="relative overflow-hidden section-pad text-primary-foreground bg-cover bg-[center_35%] md:bg-center bg-no-repeat"
-      style={{ backgroundImage: `url(${tgaBG})` }}
+      style={{ backgroundImage: `url(${content.backgroundUrl})` }}
     >
       <div className="absolute inset-0 bg-brand-surface/55 max-md:bg-brand-surface/65 md:bg-transparent" aria-hidden="true" />
       <div className="container mx-auto px-4">
@@ -70,8 +55,8 @@ const Benefits = () => {
                 : "opacity-0 translate-y-3",
             ].join(" ")}
           >
-            <span className="font-light">ERP funciona quando é </span>
-            <span className="font-extrabold text-[#2b8efa]">bem implantado</span>
+            <span className="font-light">{light} </span>
+            {accent ? <span className="font-extrabold text-[#2b8efa]">{accent}</span> : null}
           </h2>
 
           <p
@@ -82,13 +67,12 @@ const Benefits = () => {
                 : "opacity-0 translate-y-3",
             ].join(" ")}
           >
-            Não é só “instalar sistema”. A DuBrasil entra para garantir que o ERP
-            vire rotina real.
+            {content.description}
           </p>
         </div>
 
         <div className="relative max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-          {steps.map((step, index) => (
+          {content.steps.map((step, index) => (
             <div
               key={step.title}
               className={[

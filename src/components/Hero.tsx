@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react"
-import newMockups from "@/assets/mockuptga.png"
+import { parseHeroTitle } from "@/lib/cms"
+import type { HomePageContent } from "@/types/cms"
 
 function useInView<T extends HTMLElement>(
   options: IntersectionObserverInit & { once?: boolean } = { threshold: 0.2, once: true }
@@ -22,13 +23,17 @@ function useInView<T extends HTMLElement>(
   return { ref, inView }
 }
 
-const Hero = () => {
+type HeroProps = {
+  content: HomePageContent["hero"]
+}
+
+const Hero = ({ content }: HeroProps) => {
   const { ref, inView } = useInView<HTMLElement>({ threshold: 0.1, once: true })
+  const { beforeAccent, accent } = parseHeroTitle(content.title)
 
   return (
     <section ref={ref} className="pt-6 pb-6 md:pt-8 md:pb-7 bg-secondary relative overflow-hidden">
       <div className="container mx-auto px-4 relative z-10">
-        {/* Devices mockup image */}
         <div
           className={[
             "max-w-3xl mx-auto",
@@ -36,14 +41,13 @@ const Hero = () => {
           ].join(" ")}
         >
           <img
-            src={newMockups}
+            src={content.imageUrl}
             alt="ERP DuBrasil em múltiplos dispositivos - desktop, notebook e smartphone"
             className="w-full h-auto max-md:max-h-[280px] max-md:object-contain max-md:mx-auto md:pt-6"
             loading="lazy"
           />
         </div>
 
-        {/* Text card overlapping bottom */}
         <div
           className={[
             "mx-auto bg-background rounded-3xl shadow-lg px-5 py-8 max-md:-mt-2 md:px-12 md:py-10 text-center -mt-4 relative z-10 max-w-4xl",
@@ -51,14 +55,16 @@ const Hero = () => {
           ].join(" ")}
         >
           <h2 className="font-display text-3xl sm:text-4xl md:text-[60px] font-extrabold leading-[1.08] tracking-tight max-md:text-balance text-foreground mb-4 md:mb-6">
-            Menos{" "}
-            planilhas. Menos{" "}
-            retrabalho. <br />{" "}
-            <span className="text-[#2b8efa] font-extrabold">Mais controle.</span>
+            {beforeAccent}
+            {accent ? (
+              <>
+                <br />
+                <span className="text-[#2b8efa] font-extrabold">{accent}</span>
+              </>
+            ) : null}
           </h2>
           <p className="font-display text-base md:text-[20px] font-medium leading-relaxed tracking-wide max-md:text-balance text-muted-foreground max-w-4xl mx-auto">
-            O ERP é para empresas que querem parar de "apagar incêndio" e passar a ter rotina: compras,
-            vendas, estoque, financeiro e fiscal funcionando com integração e visibilidade para decisão.
+            {content.description}
           </p>
         </div>
       </div>
