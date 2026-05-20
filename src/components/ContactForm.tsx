@@ -82,8 +82,8 @@ const ContactForm = () => {
         <div className="container mx-auto px-4">
           <div className="grid items-center gap-8 md:gap-10 lg:grid-cols-12 lg:gap-12">
             {/* Textos */}
-            <div className="lg:col-span-6 flex flex-col items-center justify-center lg:items-start">
-              <div className="w-full max-w-2xl text-left">
+            <div className="lg:col-span-6 flex flex-col items-center justify-center max-md:text-center lg:items-start">
+              <div className="w-full max-w-2xl max-md:mx-auto max-md:text-center md:text-left">
                 <h2 className="mt-2 text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-[1.05] tracking-tight text-white max-md:text-balance">
                   <span className="font-light">Pronto para </span>
                   <span className="block font-extrabold text-[#2e92fe]">transformar</span>
